@@ -15,7 +15,7 @@ Alternatively, You can use an existing project if it fits better.
     - This is what it should look like before you hit Create:
 ![](https://user-images.githubusercontent.com/22556115/118602389-7822e780-b767-11eb-86fd-16e1a645acf4.png)
 
-2. Make sure to [Enabel billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project).
+2. If you've not enabled billing yet, follow [Enable billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project).
 So you can add VMs later.
 
 3. Use ***Cloud Shell*** to verify the project exists.
