@@ -42,7 +42,7 @@ emulator &
 adb shell getprop | grep finger
 ```
 
-![aphone about](res/aphone-about.png)
+<img src="res/aphone-about.png" width="300">
 
 ## Change The Boot Animation
 Most device makers will add their own boot animation for their brands. You can
@@ -67,32 +67,49 @@ PRODUCT_COPY_FILES += \
 ```
 
 4. Build & Run the AVD to check the new ATV animation.
-
-![bootanimation-atv](res/bootanimation-atv.gif)
-
+<img src="res/bootanimation-atv.gif" width="300">
 
 ## Preload An App
-Device makers can add preload apps to enhance the core experience for their users.
-1. Download a sample app APK from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples) to ~/Downloads, e.g.
-  - [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/download/v1.0.0-beta07)
+Device makers typically add preload apps to extend the core user experience for
+their devices. This example shows you how to add a prebuilt app to aphone.
+1. Download a sample app APK from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples)
+to ~/Downloads, e.g. [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/download/v1.0.0-beta07).
 
-2. Copy the APK to the device.
+2. Copy the APK to aphone folder.
 ```
-mkdir ${ANDROID_BUILD_TOP}/asd/aphone/apps
-cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}asd/aphone/apps
-```
-
-3. Create an product makefile, $ANDROID_BUILD_TOP/device/asd/aphone/aphone_product.mk, e.g.
+mkdir ${ANDROID_BUILD_TOP}/asd/apps
+cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}/asd/apps
 ```
 
+3. Create an Android.mk make file for the app in ${ANDROID_BUILD_TOP}/asd/apps.
 ```
+#Prebuilt apps for ASD
 
-4.
-5. Build & Run as usual to check the result.
+LOCAL_PATH := $(my-dir)
 
+include $(CLEAR_VARS)
 
-## Extra Credits
+LOCAL_MODULE := jetsnack
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_TAGS := optional
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRODUCT_MODULE := true
+LOCAL_SRC_FILES := jetsnack-debug.apk
+
+include $(BUILD_PREBUILT)
+```
+4. Add the app into aphone, aphone_product.mk in ${ANDROID_BUILD_TOP}/asd/aphone.
+```
+# ASD aphone apps
+PRODUCT_PACKAGES += \
+		jetsnack
+```
+5. Build & Run to check out Jetsnack app prebuilt.
+<img src="res/jetsnack.gif" width="300">
+
+## References
 1. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
 2. What are the [Android images](https://source.android.com/devices/bootloader/images)?
 3. You can build for Smarter Cars too: [Android Virtual Device as a Development
 Platform](https://source.android.com/devices/automotive/start/avd?hl=en)
+
