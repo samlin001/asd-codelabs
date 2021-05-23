@@ -8,27 +8,37 @@ In this example, we will create a new project: **ASD Codelab1**.
 Alternatively, You can use an existing project if it fits better.
 
 1. Follow the instructions for [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
-  - Project name: **ASD Codelab1**
-  - Project ID: **asd-codelab1**
-    - Need to click **Edit** in order to change ***Project ID*** as it can
+    - Project name: **ASD Codelab1**
+    - Project ID: **asd-codelab1**
+      - Need to click **Edit** in order to change ***Project ID*** as it can
     not be changed later.
-    - This is what it should look like before you hit Create:
+      - This is what it should look like before you hit Create:
+
 ![](https://user-images.githubusercontent.com/22556115/118602389-7822e780-b767-11eb-86fd-16e1a645acf4.png)
 
 2. If you've not enabled billing yet, follow [Enable billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project).
 So you can add VMs later.
 
-3. Use ***Cloud Shell*** to verify the project exists.
-  - Follow [Starting a new session](https://cloud.google.com/shell/docs/using-cloud-shell#starting_a_new_session)
+3. [Enabling APIs](https://cloud.google.com/apis/docs/getting-started#enabling_apis)
+    - This step requires you to have enabled billing
+    - Go to [Cloud Console API libary](https://console.cloud.google.com/apis/library?project=_&_ga=2.166883581.251529828.1621789213-1106651503.1621789213)
+    - Select **ASD Codelab1**
+  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/SelectProj.png)
+    - Enter compute and select Compute Engine API
+  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/compute.png)
+    - Click enable
+
+4. Use ***Cloud Shell*** to verify the project exists.
+     - Follow [Starting a new session](https://cloud.google.com/shell/docs/using-cloud-shell#starting_a_new_session)
   to use Cloud Shell.
-  - If [Cloud Shell](https://cloud.google.com/shell) is new to you, take the
+     - If [Cloud Shell](https://cloud.google.com/shell) is new to you, take the
   time to get familiar with it, because you are going to use it to complete
   the code labs.
-  - To verify the creation of your project, paste the following inside cloud shell:
-  ```
-  gcloud projects list
-  gcloud config set project asd-codelab1
-  ```
+    - To verify the creation of your project, paste the following inside cloud shell:
+    ```
+    gcloud projects list
+    gcloud config set project asd-codelab1
+    ```
   If no error occored, feel free to proceed
 ## 2. Create a VM
 - To create a new VM, use the following command in ***Cloud Shell***. And, wait
