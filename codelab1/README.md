@@ -71,7 +71,6 @@ sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-d
   sudo apt update
   sudo apt install default-jre
 ```
-- Since the VM is created from an image, everything will be already set up already
 ## 4. Chrome Remote Desktop
 - install wget and chrome desktop for Debian
 
