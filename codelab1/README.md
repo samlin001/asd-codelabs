@@ -24,8 +24,12 @@ So you can add VMs later.
   - If [Cloud Shell](https://cloud.google.com/shell) is new to you, take the
   time to get familiar with it, because you are going to use it to complete
   the code labs.
-  - ToDo: the Cloud Shell command to verify
-
+  - To verify the creation of your project, paste the following inside cloud shell:
+  ```
+  gcloud projects list
+  gcloud config set project asd-codelab1
+  ```
+  If no error occored, feel free to proceed
 ## 2. Create a VM
 - To create a new VM, use the following command in ***Cloud Shell***. And, wait
 for it to finish.
