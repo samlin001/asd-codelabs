@@ -11,20 +11,32 @@ boot animation.
 
 ## Create Your Own AVD
 1. Create your company & device folders: ${ANDROID_BUILD_TOP}/asd/aphone
-2. Create AndroidProduct.mk file for Android Build System to know your build target.
-3. Create aphone.mk file to configure your build target.
-4. Create aphone.sh development utility scripts to make your life a bit easier.
-5. Build aphone product graph.
-
 ```
+echo "Set to the android source code folder"
 export ANDROID_BUILD_TOP="${HOME}/ws/android"
 mkdir -p ${ANDROID_BUILD_TOP}/asd/aphone
-cp -r ${HOME}/ws/asd-codelab/codelab3/res/asd ${ANDROID_BUILD_TOP}/asd
 ```
 
-### Extra Credits
-1. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
-2. What are the [Android images](https://source.android.com/devices/bootloader/images)?
+2. Create [AndroidProducts.mk](res/asd/AndroidProducts.mk) file for Android
+Build System to know your build target.
+3. Create [aphone.mk](res/asd/aphone/aphone.mk) to configure your build target.
+4. Create [aphone.sh](res/asd/aphone.sh), development utility scripts to make
+your life a bit easier.
+
+```
+echo "Copy make files & scripts from codelab3"
+cp -r ${HOME}/ws/asd-codelabs/codelab3/res/asd ${ANDROID_BUILD_TOP}/asd
+
+echo "Build it by the script"
+cd ${ANDROID_BUILD_TOP}
+device/asd/aphone/aphone.sh build
+
+echo "Start your AVD"
+emulator &
+```
+
+5. You should have aphone AVD running, e.g.:
+![aphone about](res/aphone-about.png)
 
 ## Change The Boot Animation
 Most device makers will add their own boot animation for their brands. You can
@@ -35,9 +47,10 @@ is built.
 
 2. Add aphone specific bootanimation.zip, e.g.
 ```
-mkdir -p $ANDROID_BUILD_TOP/device/asd/aphone/bootanimations
+mkdir -p ${ANDROID_BUILD_TOP}/device/asd/aphone/bootanimations
 echo copy a car boot animzation as an example
-cp $ANDROID_BUILD_TOP/packages/services/Car/car_product/bootanimations/bootanimation-832.zip $ANDROID_BUILD_TOP/device/asd/aphone/bootanimations/bootanimation-832.zip
+cp ${ANDROID_BUILD_TOP}/packages/services/Car/car_product/bootanimations/bootanimation-832.zip \
+   ${ANDROID_BUILD_TOP}/device/asd/aphone/bootanimations/bootanimation-832.zip
 ```
 
 3. Add it to the makefile, $ANDROID_BUILD_TOP/device/asd/aphone/aphone.mk, e.g.
@@ -49,10 +62,28 @@ PRODUCT_COPY_FILES += \
 
 4. Build & Run as usual to check the result.
 
-## Add A Preload App
-1. Download an prebuilt APK from: https://github.com/android/compose-samples/releases/tag/v1.0.0-beta07
-2.
-https://github.com/android/compose-samples/releases
+## Preload A App
+Device makers can add preload apps to ehance the core expereience for their users.
+1. Download an sample app apk from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples) to ~/Downloads, e.g.
+  - [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/download/v1.0.0-beta07)
 
-## References
-1. You can build for Smarter Cars too: [Android Virtual Device as a Development Platform] (https://source.android.com/devices/automotive/start/avd?hl=en)
+2. Copy the apk to the device.
+```
+mkdir ${ANDROID_BUILD_TOP}/asd/aphone/apps
+cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}asd/aphone/apps
+```
+
+3. Create an product makefile, $ANDROID_BUILD_TOP/device/asd/aphone/aphone_product.mk, e.g.
+```
+
+```
+
+4.
+5. Build & Run as usual to check the result.
+
+
+## Extra Credits
+1. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
+2. What are the [Android images](https://source.android.com/devices/bootloader/images)?
+3. You can build for Smarter Cars too: [Android Virtual Device as a Development
+Platform](https://source.android.com/devices/automotive/start/avd?hl=en)
