@@ -20,7 +20,9 @@ mkdir -p ${ANDROID_BUILD_TOP}/asd/aphone
 2. Create [AndroidProducts.mk](res/asd/AndroidProducts.mk) file for Android
 Build System to know your build target.
 3. Create [aphone.mk](res/asd/aphone/aphone.mk) to configure your build target.
-4. Create [aphone.sh](res/asd/aphone.sh), development utility scripts to make
+4. Create [aphone_product.mk](res/asd/aphone/aphone_product.mk) for the product
+specific build configuration.
+5. Create [aphone.sh](res/asd/aphone.sh), development utility scripts to make
 your life a bit easier.
 
 ```
@@ -29,13 +31,17 @@ cp -r ${HOME}/ws/asd-codelabs/codelab3/res/asd ${ANDROID_BUILD_TOP}/asd
 
 echo "Build it by the script"
 cd ${ANDROID_BUILD_TOP}
-device/asd/aphone/aphone.sh build
+device/asd/aphone.sh build
 
 echo "Start your AVD"
 emulator &
 ```
 
-5. You should have aphone AVD running, e.g.:
+5. Check the build fingerprint & Settings -> About emulated device for aphone.
+```
+adb shell getprop | grep finger
+```
+
 ![aphone about](res/aphone-about.png)
 
 ## Change The Boot Animation
@@ -48,26 +54,29 @@ is built.
 2. Add aphone specific bootanimation.zip, e.g.
 ```
 mkdir -p ${ANDROID_BUILD_TOP}/device/asd/aphone/bootanimations
-echo copy a car boot animzation as an example
-cp ${ANDROID_BUILD_TOP}/packages/services/Car/car_product/bootanimations/bootanimation-832.zip \
-   ${ANDROID_BUILD_TOP}/device/asd/aphone/bootanimations/bootanimation-832.zip
+echo "Copy ATV boot animzation for example"
+cp ${ANDROID_BUILD_TOP}/device/google/atv/products/bootanimations/bootanimation.zip \
+   ${ANDROID_BUILD_TOP}/device/asd/aphone/bootanimations/bootanimation-atv.zip
 ```
 
 3. Add it to the makefile, $ANDROID_BUILD_TOP/device/asd/aphone/aphone.mk, e.g.
 ```
 # Boot animation
 PRODUCT_COPY_FILES += \
-    device/asd/aphone/bootanimations/bootanimation-832.zip:system/media/bootanimation.zip
+    device/asd/aphone/bootanimations/bootanimation-atv.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 ```
 
-4. Build & Run as usual to check the result.
+4. Build & Run the AVD to check the new ATV animation.
 
-## Preload A App
-Device makers can add preload apps to ehance the core expereience for their users.
-1. Download an sample app apk from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples) to ~/Downloads, e.g.
+![bootanimation-atv](res/bootanimation-atv.gif)
+
+
+## Preload An App
+Device makers can add preload apps to enhance the core experience for their users.
+1. Download a sample app APK from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples) to ~/Downloads, e.g.
   - [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/download/v1.0.0-beta07)
 
-2. Copy the apk to the device.
+2. Copy the APK to the device.
 ```
 mkdir ${ANDROID_BUILD_TOP}/asd/aphone/apps
 cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}asd/aphone/apps

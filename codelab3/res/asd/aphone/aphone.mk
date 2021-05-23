@@ -1,4 +1,4 @@
-# This is a phone AVD build configuration for ASD codelabs.
+# This is aphone AVD build configuration for ASD codelabs.
 # Based on android/build/make/target/product/sdk_phone_x86_64.mk
 
 #
@@ -27,7 +27,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 #
 # All components inherited here go to product image
 #
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
+$(call inherit-product, device/asd/aphone/aphone_product.mk)
 
 #
 # All components inherited here go to vendor image
