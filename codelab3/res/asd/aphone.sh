@@ -4,6 +4,7 @@ readme() {
 echo '''
 Utility scripts for aphone development under android/, e.g.
 $ device/asd/aphone.sh build
+$ device/asd/aphone.sh info
 '''
 }
 
@@ -14,8 +15,16 @@ setup() {
 build() {
   setup
   SECONDS=0
-  m -j8
+  m -j16
   echo "took ${SECONDS} s to build"
+}
+
+info() {
+  echo "Check key device info"
+  adb shell getprop | grep ro.build.fingerprint
+  adb shell getprop | grep abi
+  adb shell ls -l /product/media
+  adb shell ls -l /product/app
 }
 
 main() {
