@@ -26,12 +26,11 @@ is only for demonstration.
    m -j
    ```
 
-## Build a phone
-   
-## Building an android virtual device
+## Build a phone with Android Studio
 1. Launch browser inside your computer instace and go to [android studio download page](https://developer.android.com/studio)
 2. Download and install android studio
 3. Follow instructions over at [create and manage virtal devices](https://developer.android.com/studio/run/managing-avds#createavd)
+4. Launch Android Studio [Update your tools with the SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager)
 
 
 ## Make it run
