@@ -1,10 +1,10 @@
 # Build An Android Virtual Device On The Cloud
-In this clode lab, you will learn how to get the Android source code, build it, and run the built product on GCP. 
+In this clode lab, you will learn where to get the Android source code, how to build and run the built product on GCP. 
 
-However, downloading and building android will take around 4~6 hours total, due to the time limit, the following part up untill [Make it run](https://github.com/Alwin-Lin/gcpSetup/blob/master/README.md#make-it-run)
-is only for demonstration.
+Downloading and building android will take around 4~6 hours
 
 ## Android CS
+
  - Downliad source with repo
  ```
  mkdir -p $HOME/ws/android
