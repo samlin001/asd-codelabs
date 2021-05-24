@@ -23,9 +23,9 @@ So you can add VMs later.
     - This step requires you to have enabled billing
     - Go to [Cloud Console API libary](https://console.cloud.google.com/apis/library?project=_&_ga=2.166883581.251529828.1621789213-1106651503.1621789213)
     - Select **ASD Codelab1**
-  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/SelectProj.png)
+  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/codelab1/res/SelectProj.png)
     - Enter compute and select Compute Engine API
-  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/compute.png)
+  ![](https://raw.githubusercontent.com/Alwin-Lin/asd-codelabs/main/codelab1/res/compute.png)
     - Click enable
 
 4. Use ***Cloud Shell*** to verify the project exists.
