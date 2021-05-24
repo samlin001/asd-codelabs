@@ -35,6 +35,8 @@ device/asd/aphone.sh build
 
 echo "Start your AVD"
 emulator &
+
+device/asd/aphone.sh info
 ```
 
 5. Check the build fingerprint & Settings -> About emulated device for aphone.
