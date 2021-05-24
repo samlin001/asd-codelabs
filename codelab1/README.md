@@ -94,17 +94,18 @@ Chrome Remote Desktop provides GUI which is easier to use. However, it requires 
     ```
 3. Run emulator with Android studio
 
-### Stopping and re-start VM
-If a VM is kept running it will constantly be charged, to prevent such, stop your VM when you are done with a sesstion
+### Stop & Restart VMs
+You should stop a VM whenever you don't need it running, and restart as needed,
+to reduce [the change](https://cloud.google.com/compute/docs/instances/instance-life-cycle#comparison_table).
 
-To do so, go to [VM instances](https://console.cloud.google.com/compute/instances) and click on STOP to shut it down. The VM can be resumed with the rusume button
+- Get to know [VM instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
+- To do so, go to [VM instances](https://console.cloud.google.com/compute/instances),
+to click STOP, START & etc. as fit, e.g.
 
-<img src="res/Stop_resume.png" width="500">
-
+<img src="res/Stop_resume.png" width="800">
 
 #### Cleanup
-If the VM is no longer needed, you can
-- There are three ways to do so, [disable application](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_your_application), [disable billing](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_billing), or [deleteing project](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#deleting_your_project)
+If a VM is no longer needed, you can [delete it](https://cloud.google.com/compute/docs/instances/deleting-instance).
 
 ## Reference
 - [The gcloud command-line tool cheat sheet](https://cloud.google.com/sdk/docs/cheatsheet)
