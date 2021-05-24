@@ -41,7 +41,8 @@ So you can add VMs later.
     ```
   If no error occored, feel free to proceed
 ## 2. Create a VM
-This creates a VM with docker image, what is already set up inside?
+This creates a VM with a docker image, it comes with the following:
+    - 
 - To create a new VM, use the following command in ***Cloud Shell***. And, wait
 for it to finish.
 ```
@@ -57,38 +58,22 @@ is what you should see once everything is complete:
 ![](https://user-images.githubusercontent.com/22556115/118602391-78bb7e00-b767-11eb-826b-5ae0b3e23e07.png)
 
 ## 3. Dev. Env Setup and conecting to Chrome Remote Desktop
-GUI requires more bandwith, SSH requires less, but could be daunting
-- In VM instances, click on **SSH**, the following window should pop up, everything after this will be inputted inside the window.
-![](https://user-images.githubusercontent.com/22556115/118602390-78bb7e00-b767-11eb-852d-c4645186c750.png)
--  [Setup environment](https://source.android.com/setup/build/initializing)
+There are two ways of conecting to VM, SSH and Chrome Remote Desktop
 
-```
-sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
-```
-- Install Python, repo, Java, and libncurses
-```
-  sudo apt-get install python
-  sudo apt-get install libncurses5
-  sudo apt-get install repo
-  sudo apt update
-  sudo apt install default-jre
-```
-## 4. Chrome Remote Desktop
-- install wget and chrome desktop for Debian
+Chrome Remote Desktop is easier to use for beginers, but it requires more bandwith when compaired to SSH.
+While SSH requiers some knowlege of the linux commands
 
-```
-sudo apt update \
-sudo apt-get install --assume-yes wget \
-wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb \
-sudo dpkg --install chrome-remote-desktop_current_amd64.deb \
-sudo apt install --assume-yes --fix-broken
-```
-- Follow the instructions for [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
+- Conect with SSH
+    - In VM instances, click on **SSH**, the following window should pop up, everything after this will be inputted inside the window.
+    ![](https://user-images.githubusercontent.com/22556115/118602390-78bb7e00-b767-11eb-852d-c4645186c750.png)
 
-## 5. Cleanup
+- Chrome Remote Desktop
+    - Follow the instructions for [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
+## 4. Cleanup
 - There are three ways to do so, [disable application](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_your_application), [disable billing](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_billing), or [deleteing project](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#deleting_your_project)
 
 ## Reference
-- Linux cheat sheet
-- Script cheat sheet
-- How to use Android studio
+- [The gcloud command-line tool cheat sheet](https://cloud.google.com/sdk/docs/cheatsheet)
+- [Linux cheat sheet](https://linoxide.com/images/linux-cheat-sheet-612x792.png)
+- [Script cheat sheet](https://cheatography.com/beersj02/cheat-sheets/linux-bash-and-system-administration/)
+- [Building your first app](https://developer.android.com/training/basics/firstapp) with Android studio
