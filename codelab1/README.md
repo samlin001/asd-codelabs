@@ -41,6 +41,7 @@ So you can add VMs later.
     ```
   If no error occored, feel free to proceed
 ## 2. Create a VM
+This creates a VM with docker image, what is already set up inside?
 - To create a new VM, use the following command in ***Cloud Shell***. And, wait
 for it to finish.
 ```
@@ -55,7 +56,8 @@ for it to finish.
 is what you should see once everything is complete:
 ![](https://user-images.githubusercontent.com/22556115/118602391-78bb7e00-b767-11eb-826b-5ae0b3e23e07.png)
 
-## 3. Dev. Env Setup
+## 3. Dev. Env Setup and conecting to Chrome Remote Desktop
+GUI requires more bandwith, SSH requires less, but could be daunting
 - In VM instances, click on **SSH**, the following window should pop up, everything after this will be inputted inside the window.
 ![](https://user-images.githubusercontent.com/22556115/118602390-78bb7e00-b767-11eb-852d-c4645186c750.png)
 -  [Setup environment](https://source.android.com/setup/build/initializing)
@@ -87,4 +89,6 @@ sudo apt install --assume-yes --fix-broken
 - There are three ways to do so, [disable application](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_your_application), [disable billing](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#disabling_billing), or [deleteing project](https://cloud.google.com/appengine/docs/standard/python3/building-app/cleaning-up#deleting_your_project)
 
 ## Reference
-- Todo: useful materials to explore more
+- Linux cheat sheet
+- Script cheat sheet
+- How to use Android studio
