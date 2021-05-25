@@ -105,8 +105,11 @@ emulator
 - View [troubleshooting common error](https://source.android.com/setup/build/building#troubleshooting-common-build-errors) page for more
 
 ### Creating an image from VM
-
-Note: Shut down the VM for this step.
+Before creating an image you should:
+1. Stop the VM
+2. [Deauthorize Chrome Remote Desktop for the instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#deauthorize_chrome_remote_desktop_for_the_instance)
+3. Add in ``` --licenses https://compute.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx``` if you intend to use nested VM
+4. Remove any personal login infromation if any
 
 ```
 gcloud compute images create <YOUR_IMAGE_NAME> \
