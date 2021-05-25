@@ -41,7 +41,7 @@ gcloud compute instances create <YOUR_VM_NAME> \
    ```
    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
    ```
-2. Python, libncurses and repo
+2. Required softwares
    - Install Python 2.7
      - Note: Stick with 2.7 for now, using python 3 can cause problems when useing repo
 
@@ -54,18 +54,27 @@ gcloud compute instances create <YOUR_VM_NAME> \
    sudo apt-get install libncurses5
    ```
    - [Install repo](https://source.android.com/setup/develop#installing-repo)
-  ```
-  mkdir ~/bin
-  PATH=~/bin:$PATH
-  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-  chmod a+x ~/bin/repo
-  ```
+    ```
+    mkdir ~/bin
+    PATH=~/bin:$PATH
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    chmod a+x ~/bin/repo
+    ```
    -  Install Java
    ```
    sudo apt update
    sudo apt install default-jre
    ```
-
+   - Install qemu-system-x86 (Only for Ubuntu 18.04)
+    ```
+    sudo apt update
+    sudo apt install qemu-system-x86
+    ```
+    - Install qemu-kvm (Only for Ubuntu 18.04)
+    ```
+    sudo apt install qemu-kvm
+    sudo adduser $USER kvm
+    ```
 3. [Download from Android source tree](https://source.android.com/setup/build/downloading)
 
    - Config Git enviroemnt
@@ -97,11 +106,9 @@ gcloud compute instances create <YOUR_VM_NAME> \
    lunch <TARGET_VARIANT> \
    m -j<THREAD_COUNT>
    ```
-5. Run emulator
-```
-emulator
-```
-6. Common errors
+
+
+5. Common errors
 - View [troubleshooting common error](https://source.android.com/setup/build/building#troubleshooting-common-build-errors) page for more
 
 ### Creating an image from VM
