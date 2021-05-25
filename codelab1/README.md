@@ -95,16 +95,17 @@ Chrome Remote Desktop.
     - Note: The Windows app for chrome remote desktop is no longer supported,
     use the web app instead.
 
-## Explore the development enviroment
-1. Find android tree
+## Explore the development environment
+1. Find prebuild Android tree at /ws/android
     ```
-    cd/ws/android
+    ls -l /ws/android
     ```
-2. Codelab project location
+
+2. asd-codelabs project is cloned at /ws/asd-codelabs
     ```
-    cd ws
-    git clone https://github.com/samlin001/asd-codelabs.git
+    ls -l /ws/asd-codelabs
     ```
+
 3. Run emulator with Android studio
 
     1. If this is the first run, add yourself into kvm with
