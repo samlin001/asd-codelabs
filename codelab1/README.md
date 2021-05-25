@@ -59,7 +59,7 @@ The custom image have all the software required for Android system development:
 1. Use the following command in ***Cloud Shell***.
 ```
     gcloud compute instances create asd-codelab1-vm \
-        --image-project=gcpsample-311822 \
+        --image-project=asd-codelab1 \
         --image=asd-android11-qpr2 \
         --custom-extensions --custom-cpu=4 --custom-memory=450 \
         --zone=us-west1-b
