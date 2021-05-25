@@ -25,6 +25,7 @@ info() {
   adb shell getprop | grep abi
   adb shell ls -l /product/media
   adb shell ls -l /product/app
+  adb shell pm list features
 }
 
 main() {
