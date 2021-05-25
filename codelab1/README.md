@@ -108,6 +108,7 @@ Chrome Remote Desktop.
 
     1. If this is the first run, add yourself into kvm with
         ```
+        sudo chown <YOUR_USER_NAME> /dev/kvm
         sudo adduser $USER kvm
         ```
     2. Check if you are in kvm group
