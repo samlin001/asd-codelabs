@@ -48,7 +48,7 @@ gcloud config set project ${PROJECT_ID}
 Now, let's create a VM with a custom image for development. By using a custom
 image you can skip many set up setps. In this example, we use a custom image
 with all the software required for Android system development:
-  - Linux: todo version
+  - Linux: ubuntu 18.04
   - Python 2.7 as repo depend on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
   - [Android Studio 4.2.1](https://developer.android.com/studio)
