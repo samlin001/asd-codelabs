@@ -30,9 +30,10 @@ repo sync -j16
 1. Read [Building Android](https://source.android.com/setup/build/building) to know more details.
 
 2. A quickstart to build sdk_phon_x86_64 AVD.
+    - To save time, we use the prebuilt Android verion at /ws/android.
 ```
 echo "Set android folder"
-export ANDROID_BUILD_TOP="${HOME}/ws/android"
+export ANDROID_BUILD_TOP="/ws/android"
 cd ${ANDROID_BUILD_TOP}
 
 echo "Set up Android build environment"

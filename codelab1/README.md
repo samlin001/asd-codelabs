@@ -66,7 +66,8 @@ gcloud compute instances create asd-vm1 \
   --image-project=asd-codelab1 \
   --image=asd-android11-qpr2 \
   --custom-extensions --custom-cpu=8 --custom-memory=32GB \
-  --zone=us-central1-a
+  --min-cpu-platform "Intel Haswell" \
+  --zone=us-west2-a
 
 echo "List VMs"
 gcloud compute instances list
@@ -88,7 +89,7 @@ Chrome Remote Desktop.
 <img src="res/SSH.png" width="800">
 
 2. Chrome Remote Desktop
-    - Chrome Remote Desktop provides GUI which is easier to use. However, it
+    - Chrome Remote Desktop provides GUI, which is easier to use. However, it
     requires more bandwith than SSH & additional set up.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
     - Note: The Windows app for chrome remote desktop is no longer supported,

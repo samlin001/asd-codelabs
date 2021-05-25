@@ -13,7 +13,7 @@ boot animation.
 1. Create your company & device folders: ${ANDROID_BUILD_TOP}/asd/aphone
 ```
 echo "Set to the android source code folder"
-export ANDROID_BUILD_TOP="${HOME}/ws/android"
+export ANDROID_BUILD_TOP="/ws/android"
 mkdir -p ${ANDROID_BUILD_TOP}/asd/aphone
 ```
 
@@ -27,7 +27,7 @@ your life a bit easier.
 
 ```
 echo "Copy make files & scripts from codelab3"
-cp -r ${HOME}/ws/asd-codelabs/codelab3/res/asd ${ANDROID_BUILD_TOP}/asd
+cp -r /ws/asd-codelabs/codelab3/res/asd ${ANDROID_BUILD_TOP}/device/asd
 
 echo "Build it by the script"
 cd ${ANDROID_BUILD_TOP}
