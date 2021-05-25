@@ -94,15 +94,34 @@ Chrome Remote Desktop.
     - Note: The Windows app for chrome remote desktop is no longer supported,
     use the web app instead.
 
-## Explore the development enviroment
+## 4. Explore the development environment
 1. Find android tree
-  - Todo: ws\android Screenshot
+    ```
+    cd/ws/android
+    ```
 2. Codelab project location
     ```
     cd ws
     git clone https://github.com/samlin001/asd-codelabs.git
     ```
 3. Run emulator with Android studio
+
+    1. If this is the first run, add yourself into kvm with
+        ```
+        sudo adduser $USER kvm
+        ```
+    2. Check if you are in kvm group
+        ```
+        grep kvm /etc/group
+        ```
+    3. Restart the VM by stopping then resuming the VM
+    4. Launch Android Studio
+          ```
+          cd /ws/Android Studio/android-studio/bin
+          ./studio.sh
+          ```
+    5. [Run on emulator](https://developer.android.com/training/basics/firstapp/running-app#Emulator)
+
 
 ### Stop & Restart VMs
 You should stop a VM whenever you don't need it running, and restart as needed,
