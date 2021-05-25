@@ -6,85 +6,95 @@ Android system development.
 ## Android developement on the cloud
 ![Android Developement on the cloud](res/Android%20System%20Development%20On%20The%20Cloud.png)
 
-## 1. Create a new GCP project
+## Create a new GCP project
 In this example, we will create a new project: **ASD Codelab1**.
 Alternatively, You can use an existing project if it fits better.
 
 1. Follow the instructions for [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
     - Project name: **ASD Codelab1**
-    - Project ID: **asd-codelab1**
-      - Need to click **Edit** in order to change ***Project ID*** as it can
-    not be changed later.
-      - This is what it should look like before you hit Create:
-<img src="res/startProj.png" width="300">
+    - Keep the Project ID handly as it's the unique identifier for your projec.
+    **my-project-id** is used as the example. Which should be replaced with the
+    actual Project ID.
 
-2. If you've not enabled billing yet, follow [Enable billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project).
-So you can add VMs later.
+<img src="res/startProj.png" width="400">
 
-3. [Enabling APIs](https://cloud.google.com/apis/docs/getting-started#enabling_apis)
-    - This step requires you to have enabled billing
-    - Go to [Cloud Console API libary](https://console.cloud.google.com/apis/library?project=_&_ga=2.166883581.251529828.1621789213-1106651503.1621789213)
-    - Select **ASD Codelab1**
+2. If you never enable billing, [Enable billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
+first. So, you can proceed the following steps.
 
-      <img src ="res/SelectProj.png" width="300">
-    - Enter compute and select Compute Engine API
+3. Enable Compute Engine API
+    - In [GCP Console](http://console.cloud.google.com/), select the project: **ASD Codelab1**
+    - Search **compute** to select **Compute Engine API**
+    - Select **Enable**
 
-      <img src="res/compute.png" width="300">
+<img src ="res/SelectProj.png" width="800">
+<img src="res/compute.png" width="800">
 
-    - Click enable
+4. Check the project by [Cloud Shell](https://cloud.google.com/shell)
+    - Read [Using Cloud Shell](https://cloud.google.com/shell/docs/using-cloud-shel)
+    if Cloud Shell is new to you.
+    - Take the time to get familiar with
+    [Running gcloud commands with Cloud Shell](https://cloud.google.com/shell/docs/running-gcloud-commands),
+    because you are going to use it a lot in the code labs.
+    - To verify if the project exists, you can list & grap the ID as:
+```
+export PROJECT_ID="asd-codelab1"
+gcloud projects list | grep ${PROJECT_ID}
 
-4. Use ***Cloud Shell*** to verify the project exists.
-     - Follow [Starting a new session](https://cloud.google.com/shell/docs/using-cloud-shell#starting_a_new_session)
-  to use Cloud Shell.
-     - If [Cloud Shell](https://cloud.google.com/shell) is new to you, take the
-  time to get familiar with it, because you are going to use it to complete
-  the code labs.
-    - To verify asd-codelab1 is created, use the following command to list and grab the project name.
-    ```
-    gcloud projects list | grep asd-codelab1
-    ```
-    - You can set the project as a default for the section by the following command.
-    ```
-    gcloud config set project asd-codelab1
-    ```
+echo "Set the defult project for the section"
+gcloud config set project ${PROJECT_ID}
+```
 
-## 2. Createing a VM
-This creates a VM with a custom image for development.
-
-The custom image have all the software required for Android system development:
+## Create a VM
+Now, let's create a VM with a custom image for development. By using a custom
+image you can skip many set up setps. In this example, we use a custom image
+with all the software required for Android system development:
+  - Linux: todo version
   - Python 2.7 as repo depend on it.
+  - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
+  - [Android Studio 4.2.1](https://developer.android.com/studio)
   - ToDo: other installed
 
-### Steps:
-1. Use the following command in ***Cloud Shell***.
+### Steps
+1. Read [Create a VM from a custom image](https://cloud.google.com/compute/docs/instances/create-start-instance#create_a_vm_from_a_custom_image).
+
+2. Create a VM:**asd-vm1** by the custom image: **asd-android11-qpr2** by
+Cloud Shell.
+    - [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)
+    - To pick a zone: [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones), e.g. us-west2-a for California.
 ```
-    gcloud compute instances create asd-codelab1-vm \
-        --image-project=asd-codelab1 \
-        --image=asd-android11-qpr2 \
-        --custom-extensions --custom-cpu=4 --custom-memory=450 \
-        --zone=us-west1-b
+gcloud compute instances create asd-vm1 \
+  --image-project=asd-codelab1 \
+  --image=asd-android11-qpr2 \
+  --custom-extensions --custom-cpu=8 --custom-memory=32GB \
+  --zone=us-central1-a
+
+echo "List VMs"
+gcloud compute instances list
 ```
 
-2. Check the VM is created at [VM instances](https://console.cloud.google.com/compute/instances), e.g.
+3. You can also check it at the console: [VM instances](https://console.cloud.google.com/compute/instances).
 
-    <img src="res/VerifyVMCreation.png" width="300">
+    <img src="res/VerifyVMCreation.png" width="800">
+VM Instances Screenshot
 
-## 3. Conecting your local computer to the VM on the cloud
-There are two ways to connect the VM on the cloud:
+## Connect to the VM
+There are 2 ways to connect to the the VM on the cloud to use it: 1) SSH and 2)
+Chrome Remote Desktop.
 
-#### SSH
-In VM instances, click on **SSH**, the following window should pop up, everything after this will be inputted inside the window.
+1. SSH
+    - In [VM instances](https://console.cloud.google.com/compute/instances), click
+**SSH**,  a web page will be opne & connect to the VM via SSH.
 
-<img src="res/SSH.png" width="300">
+<img src="res/SSH.png" width="800">
 
-#### Chrome Remote Desktop
-Chrome Remote Desktop provides GUI which is easier to use. However, it requires more bandwith than SSH, as well as additional setup.
+2. Chrome Remote Desktop
+    - Chrome Remote Desktop provides GUI which is easier to use. However, it
+    requires more bandwith than SSH & additional set up.
+    - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
+    - Note: The Windows app for chrome remote desktop is no longer supported,
+    use the web app instead.
 
-- Setup Chrome Remote Desktop
-    - Follow the instructions for [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
-    - Note: The Windows app for chrome remote desktop is no longer supported, use the web app
-
-## 4. Explore the development enviroment
+## Explore the development enviroment
 1. Find android tree
   - Todo: ws\android Screenshot
 2. Codelab project location
