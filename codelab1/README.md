@@ -30,12 +30,13 @@ first. So, you can proceed the following steps.
 <img src="res/compute.png" width="800">
 
 4. Check the project by [Cloud Shell](https://cloud.google.com/shell)
-    - Read [Using Cloud Shell](https://cloud.google.com/shell/docs/using-cloud-shel)
+    - Read [Using Cloud Shell](https://cloud.google.com/shell/docs/using-cloud-shell)
     if Cloud Shell is new to you.
     - Take the time to get familiar with
     [Running gcloud commands with Cloud Shell](https://cloud.google.com/shell/docs/running-gcloud-commands),
     because you are going to use it a lot in the code labs.
-    - To verify if the project exists, you can list & grap the ID as:
+    - To verify if the project exists, you can list & grap the ID in [Cloud Shell Editor](https://shell.cloud.google.com)
+     as:
 ```
 export PROJECT_ID="asd-codelab1"
 gcloud projects list | grep ${PROJECT_ID}
@@ -59,8 +60,11 @@ with all the software required for Android system development:
 
 2. Create a VM:**asd-vm1** by the custom image: **asd-android11-qpr2** by
 Cloud Shell.
-    - [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)
-    - To pick a zone: [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones), e.g. us-west2-a for California.
+    - The command reference: [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)
+    - [The map of Cloud locations](https://cloud.google.com/about/locations#regions)
+    - How to pick a zone: [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones), e.g. us-west2-a for California.
+
+In [Cloud Shell Editor](https://shell.cloud.google.com):
 ```
 gcloud compute instances create asd-vm1 \
   --image-project=asd-codelab1 \
@@ -108,16 +112,20 @@ Chrome Remote Desktop.
 
 3. Run emulator with Android studio
 
-    1. If this is the first run, add yourself into kvm with
+    1. If this is the first run for a new VM, enable **kvm** first.
         ```
-        sudo chown <YOUR_USER_NAME> /dev/kvm
+        echo "Check if kvm is enabled for the VM. If not, follow Enabling nested virtualization for VM instances"
+        ls -l /dev/kvm
+        echo "Add yourself to the kvm grols up"
         sudo adduser $USER kvm
+        echo "Ensure the kvm group can access to kvm"
+        sudo chmod 660 /dev/kvm
         ```
     2. Check if you are in kvm group
         ```
         grep kvm /etc/group
         ```
-    3. Restart the VM by stopping then resuming the VM
+    3. Reset the VM & reconnect
     4. Launch Android Studio
           ```
           cd /ws/Android Studio/android-studio/bin
