@@ -19,6 +19,10 @@ build() {
   echo "took ${SECONDS} s to build"
 }
 
+run() {
+  emulator -no-snapshot -memory 4096 &
+}
+
 info() {
   echo "Check key device info"
   adb shell getprop | grep ro.build.fingerprint
@@ -26,6 +30,7 @@ info() {
   adb shell ls -l /product/media
   adb shell ls -l /product/app
   adb shell pm list features
+  adb shell cat /proc/meminfo
 }
 
 main() {

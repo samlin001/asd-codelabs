@@ -75,15 +75,15 @@ PRODUCT_COPY_FILES += \
 Device makers typically add preload apps to extend the core user experience for
 their devices. This example shows you how to add a prebuilt app to aphone.
 1. Download a sample app APK from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples)
-to ~/Downloads, e.g. [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/download/v1.0.0-beta07).
+to ~/Downloads, e.g. [jetsnack-debug.apk](https://github.com/android/compose-samples/releases/tag/v1.0.0-beta07).
 
 2. Copy the APK to aphone folder.
 ```
-mkdir ${ANDROID_BUILD_TOP}/asd/apps
-cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}/asd/apps
+mkdir ${ANDROID_BUILD_TOP}/device/asd/apps
+cp  ${HOME}/Downloads/jetsnack-debug.apk ${ANDROID_BUILD_TOP}/device/asd/apps
 ```
 
-3. Create an Android.mk make file for the app in ${ANDROID_BUILD_TOP}/asd/apps.
+3. Create an Android.mk make file for the app in ${ANDROID_BUILD_TOP}/device/asd/apps.
 ```
 #Prebuilt apps for ASD
 
@@ -100,7 +100,7 @@ LOCAL_SRC_FILES := jetsnack-debug.apk
 
 include $(BUILD_PREBUILT)
 ```
-4. Add the app into aphone, aphone_product.mk in ${ANDROID_BUILD_TOP}/asd/aphone.
+4. Add the app into aphone, aphone_product.mk in ${ANDROID_BUILD_TOP}/device/asd/aphone.
 ```
 # ASD aphone apps
 PRODUCT_PACKAGES += \
