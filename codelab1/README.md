@@ -94,7 +94,7 @@ Chrome Remote Desktop.
     - Note: The Windows app for chrome remote desktop is no longer supported,
     use the web app instead.
 
-## 4. Explore the development environment
+## Explore the development enviroment
 1. Find android tree
     ```
     cd/ws/android
