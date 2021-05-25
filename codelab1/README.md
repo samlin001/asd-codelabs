@@ -48,7 +48,7 @@ gcloud config set project ${PROJECT_ID}
 Now, let's create a VM with a custom image for development. By using a custom
 image you can skip many set up setps. In this example, we use a custom image
 with all the software required for Android system development:
-  - Linux: todo version
+  - Linux: ubuntu 18.04
   - Python 2.7 as repo depend on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
   - [Android Studio 4.2.1](https://developer.android.com/studio)
@@ -97,13 +97,32 @@ Chrome Remote Desktop.
 
 ## Explore the development enviroment
 1. Find android tree
-  - Todo: ws\android Screenshot
+    ```
+    cd/ws/android
+    ```
 2. Codelab project location
     ```
     cd ws
     git clone https://github.com/samlin001/asd-codelabs.git
     ```
 3. Run emulator with Android studio
+
+    1. If this is the first run, add yourself into kvm with
+        ```
+        sudo adduser $USER kvm
+        ```
+    2. Check if you are in kvm group
+        ```
+        grep kvm /etc/group
+        ```
+    3. Restart the VM by stopping then resuming the VM
+    4. Launch Android Studio
+          ```
+          cd /ws/Android Studio/android-studio/bin
+          ./studio.sh
+          ```
+    5. [Run on emulator](https://developer.android.com/training/basics/firstapp/running-app#Emulator)
+
 
 ### Stop & Restart VMs
 You should stop a VM whenever you don't need it running, and restart as needed,
