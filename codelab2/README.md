@@ -2,10 +2,10 @@
 In this clode lab, you will learn how to build an Android Virtual Device(AVD),
 sdk_phone_x86_64 on the cloud.
 
-## Android Build Process In A Nutshell
+## Android build process in a nutshell
 ![Android Build Process](res/Android%20Build%20Process.png)
 
-## Android Source Code
+## Android source code
 Glancing through following pointers will give you a sense of Android codebase &
 development universe.
 - To navigate the codebase: [Android Code Search](https://cs.android.com/)
@@ -15,7 +15,7 @@ development universe.
 - Understand [Source Control Workflow](https://source.android.com/setup/create/coding-tasks)
 
 
-### Download Android Source Code
+### Download Android source code
 1. Pick an branch from [AOSP branch list](https://android.googlesource.com/platform/manifest/+refs).
 2. Read [Downloading the Source](https://source.android.com/setup/build/downloading)
 to learn more.
@@ -64,8 +64,9 @@ m -j16
 echo "Run it"
 emulator &
 ```
+<img src="res/avd.png" width="400">
 
-## Poke Around
+## Poke aound
 Android Emulator provides many useful controls for you to play around an AVD,
 such as:
 - [Perform common actions in the emulator](https://developer.android.com/studio/run/emulator#tasks)
@@ -95,3 +96,4 @@ to ~/Downloads, e.g. [jetsnack-debug.apk](https://github.com/android/compose-sam
     ```
     adb install $HOME/Downloads/jetsnack-debug.apk
     ```
+<img src="res/jetsnack.gif" width="400">
