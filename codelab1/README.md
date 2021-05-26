@@ -79,8 +79,7 @@ gcloud compute instances list
 
 3. You can also check it at the console: [VM instances](https://console.cloud.google.com/compute/instances).
 
-    <img src="res/VerifyVMCreation.png" width="800">
-VM Instances Screenshot
+<img src="res/VerifyVMCreation.png" width="800">
 
 ## Connect to the VM
 There are 2 ways to connect to the the VM on the cloud to use it: 1) SSH and 2)
@@ -100,14 +99,18 @@ Chrome Remote Desktop.
     use the web app instead.
 
 ## Explore the development environment
-1. Find prebuild Android tree at /ws/android
+1. Find prebuilt Android tree in **/ws/android** in **Terminal**
     ```
     ls -l /ws/android
+    echo "Open it in File Manager"
+    xdg-open /ws/android
     ```
 
-2. asd-codelabs project is cloned at /ws/asd-codelabs
+2. asd-codelabs project is cloned in **/ws/asd-codelabs** in **Terminal**
     ```
     ls -l /ws/asd-codelabs
+    echo "Open it in File Manager"
+    xdg-open /ws/asd-codelabs
     ```
 
 3. Run emulator with Android studio
@@ -126,20 +129,24 @@ Chrome Remote Desktop.
         grep kvm /etc/group
         ```
     3. Reset the VM & reconnect
-    4. Launch Android Studio
+    4. Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
           ```
-          cd /ws/Android Studio/android-studio/bin
+          cd /ws/Android\ Studio/android-studio/bin
           ./studio.sh
           ```
-    5. [Run on emulator](https://developer.android.com/training/basics/firstapp/running-app#Emulator)
+    5. Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
+    from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
+    6. Double-click the default Pixel AVD to run it.
 
+<img src="res/startAVDManager.png" width="400">
+<img src="res/pixelAVD.png" width="400">
 
 ### Stop & Restart VMs
 You should stop a VM whenever you don't need it running, and restart as needed,
 to reduce [the change](https://cloud.google.com/compute/docs/instances/instance-life-cycle#comparison_table).
 
 - Get to know [VM instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
-- To do so, go to [VM instances](https://console.cloud.google.com/compute/instances),
+- To manage it, go to [VM instances](https://console.cloud.google.com/compute/instances),
 to click STOP, START & etc. as fit, e.g.
 
 <img src="res/Stop_resume.png" width="800">
@@ -147,7 +154,7 @@ to click STOP, START & etc. as fit, e.g.
 #### Cleanup
 If a VM is no longer needed, you can [delete it](https://cloud.google.com/compute/docs/instances/deleting-instance).
 
-## Reference
+## Extra Credits
 - [The gcloud command-line tool cheat sheet](https://cloud.google.com/sdk/docs/cheatsheet)
 - [Linux cheat sheet](https://linoxide.com/images/linux-cheat-sheet-612x792.png)
 - [Script cheat sheet](https://cheatography.com/beersj02/cheat-sheets/linux-bash-and-system-administration/)
