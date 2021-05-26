@@ -21,7 +21,7 @@ setupVm() {
   sudo chmod 660 /dev/kvm
   grep kvm /etc/group
   echo "Make ${USER} as the owner for /ws"
-  sudo chown -R ${USER} /ws
+  sudo chown -R ${USER}:${USER} /ws
 
   echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
   ln -s /ws/Android ${HOME}/Android
