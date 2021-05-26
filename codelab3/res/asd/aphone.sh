@@ -20,7 +20,7 @@ build() {
 }
 
 run() {
-  emulator -no-snapshot -memory 4096 &
+  emulator -no-snapshot -memory 4096 -qemu -smp 6 &
 }
 
 info() {
@@ -31,6 +31,7 @@ info() {
   adb shell ls -l /product/app
   adb shell pm list features
   adb shell cat /proc/meminfo
+  adb shell cat /proc/cpuinfo
 }
 
 main() {

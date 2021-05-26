@@ -2,14 +2,14 @@
 In this code lab, you will learn how to create a new AVD target and change its
 boot animation.
 
-## Android Build Anatomy
+## Android build anatomy
 ![Android Build Layers](res/Android_Build_Layers.png)
 1. [Understanding build layers](https://source.android.com/setup/develop/new-device#build-layers)
 2. [Build parameters & fingerprint](https://source.android.com/compatibility/android-cdd#3_2_2_build_parameters)
 3. [Pixel 5 build make files](https://cs.android.com/android/platform/superproject/+/master:device/google/redfin/)
 4. [Nexus & Pixel factory images](https://developers.google.com/android/images#redfin)
 
-## Create Your Own AVD
+## Create your own AVD
 1. Create your company & device folders: ${ANDROID_BUILD_TOP}/asd/aphone
 ```
 echo "Set to the android source code folder"
@@ -46,7 +46,7 @@ adb shell getprop | grep finger
 
 <img src="res/aphone-about.png" width="300">
 
-## Change The Boot Animation
+## Change the boot animation
 Most device makers will add their own boot animation for their brands. You can
 make your own too as:
 
@@ -71,7 +71,7 @@ PRODUCT_COPY_FILES += \
 4. Build & Run the AVD to check the new ATV animation.
 <img src="res/bootanimation-atv.gif" width="300">
 
-## Preload An App
+## Preload an app
 Device makers typically add preload apps to extend the core user experience for
 their devices. This example shows you how to add a prebuilt app to aphone.
 1. Download a sample app APK from [Jetpack Compose Samples](https://github.com/android/compose-samples#jetpack-compose-samples)
@@ -106,10 +106,10 @@ include $(BUILD_PREBUILT)
 PRODUCT_PACKAGES += \
 		jetsnack
 ```
-5. Build & Run to check out Jetsnack app prebuilt.
+5. Build & run to check out Jetsnack app is preloaded.
 <img src="res/jetsnack.gif" width="300">
 
-## References
+## Extra credits
 1. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
 2. What are the [Android images](https://source.android.com/devices/bootloader/images)?
 3. You can build for Smarter Cars too: [Android Virtual Device as a Development

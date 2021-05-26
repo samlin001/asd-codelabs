@@ -1,4 +1,4 @@
-# Set Up A System Development Environment on The Cloud
+# Set Up a System Development Environment on the Cloud
 In this code lab, you will learn how to create a virtual machine on
 Google Cloud Platform(GCP) and access it by Chrome Remote Desktop(CRD) for
 Android system development.
@@ -53,15 +53,15 @@ with all the software required for Android system development:
   - Python 2.7 as repo depend on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
   - [Android Studio 4.2.1](https://developer.android.com/studio)
-  - ToDo: other installed
+
 
 ### Steps
 1. Read [Create a VM from a custom image](https://cloud.google.com/compute/docs/instances/create-start-instance#create_a_vm_from_a_custom_image).
 
 2. Create a VM:**asd-vm1** by the custom image: **asd-android11-qpr2** by
 Cloud Shell.
-    - The command reference: [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)
-    - [The map of Cloud locations](https://cloud.google.com/about/locations#regions)
+    - The command reference: [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create).
+    - [The map of Cloud locations](https://cloud.google.com/about/locations#regions).
     - How to pick a zone: [Available regions and zones](https://cloud.google.com/compute/docs/regions-zones), e.g. us-west2-a for California.
 
 In [Cloud Shell Editor](https://shell.cloud.google.com):

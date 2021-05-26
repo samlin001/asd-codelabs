@@ -85,7 +85,7 @@ to check the AVD, e.g.
 - e.g. try to disable the [Quick Boot](https://developer.android.com/studio/run/emulator#quickboot)
 feature & increase RAM. Check if the AVD runs quicker.
     ```
-    emulator -no-snapshot -memory 4096 &
+    emulator -no-snapshot -memory 4096 -qemu -smp 6 &
     ```
 
 ### Install an app
