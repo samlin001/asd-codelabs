@@ -3,11 +3,12 @@
 readme() {
 echo '''
 Utility scripts for Android System Development, e.g.
-$ ./asd.sh setupVm
-$ ./asd.sh buildSdkPhone
-$ ./asd.sh buildAPhone
-$ ./asd.sh runAvd
-$ ./asd.sh avdInfo
+./asd.sh setupVm
+./asd.sh studio
+./asd.sh buildSdkPhone
+./asd.sh buildAPhone
+./asd.sh runAvd
+./asd.sh avdInfo
 '''
 }
 
@@ -19,6 +20,8 @@ setupVm() {
   echo "Ensure the kvm group can access to kvm"
   sudo chmod 660 /dev/kvm
   grep kvm /etc/group
+  echo "Make ${USER} as the owner for /ws"
+  sudo chown -R ${USER} /ws
 
   echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
   ln -s /ws/Android ${HOME}/Android
