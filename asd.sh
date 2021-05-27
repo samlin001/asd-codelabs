@@ -29,6 +29,10 @@ setupVm() {
 
   echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
   ln -s /ws/Android ${HOME}/Android
+  echo 'alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"' >> ~/.bashrc
+  echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
+  echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
+  echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
   echo "setupVm took ${SECONDS} s."
 }
 
@@ -41,14 +45,7 @@ setEnv() {
   if [[ -z ${ANDROID_SDK_ROOT} ]]; then
     export ANDROID_SDK_ROOT="${HOME}/Android/Sdk"
   fi
-  export PATH=$PATH:/ws/bin:/ws/asd-codelabs
-  alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"
-  alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"
-}
-
-
-studio() {
-  /ws/android-studio/bin/studio.sh &
+  cd "${ANDROID_BUILD_TOP}"
 }
 
 sync() {
