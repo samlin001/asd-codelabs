@@ -116,8 +116,10 @@ PRODUCT_PACKAGES += \
 <img src="res/jetsnack.gif" width="300">
 
 ## Extra credits
-1. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
-2. What are the [Android images](https://source.android.com/devices/bootloader/images)?
-3. You can build for Smarter Cars too: [Android Virtual Device as a Development
+1. How will you change the AVD to use another boot animation? e.g. [Android Automotive one](https://cs.android.com/android/platform/superproject/+/master:packages/services/Car/car_product/bootanimations/).
+2. How will you preload more apps or even your own apps?
+3. What are the [Android device storage partitions](https://source.android.com/devices/bootloader/partitions)?
+4. What are the [Android images](https://source.android.com/devices/bootloader/images)?
+5. How to build for Smarter Cars too: [Android Virtual Device as a Development
 Platform](https://source.android.com/devices/automotive/start/avd?hl=en)
 

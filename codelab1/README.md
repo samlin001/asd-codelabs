@@ -99,8 +99,9 @@ Chrome Remote Desktop.
     - Chrome Remote Desktop provides GUI, which is easier to use. However, it
     requires more bandwith than SSH & additional set up.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
-    - Note: The Windows app for chrome remote desktop is no longer supported,
-    use the web app instead.
+    - To copy & paste between your local machine & the VM, [Enable Clipboard Synchronization](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#enable_clipboard_synchronization).
+    - For Windows users: the Windows app for chrome remote desktop is no longer
+    supported, use the web app instead.
 
 ## One-time setup of a new VM
 Even the curstom image includes all software, there are still a few steps to make a new VM ready for a user.
@@ -168,8 +169,8 @@ Even the curstom image includes all software, there are still a few steps to mak
     from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
     6. Double-click the default Pixel AVD to run it.
 
-<img src="res/startAVDManager.png" width="400">
-<img src="res/pixelAVD.png" width="400">
+    <img src="res/startAVDManager.png" width="400">
+    <img src="res/pixelAVD.png" width="400">
 
 ### Stop & Restart VMs
 You should stop a VM whenever you don't need it running, and restart as needed,
