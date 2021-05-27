@@ -32,7 +32,7 @@ to learn more.
     - **/ws/android** has android11-qpr2-release downloaded in the custom
     image.
     - You don't need to do this, but just for fun, you may re-sync it. It'll
-    only take about 5 min. to re-sync.
+    only take about 4 min. to re-sync.
     ```
     cd /ws/android
     repo sync -j16
@@ -45,7 +45,7 @@ know more details.
 2. A quickstart to build sdk_phon_x86_64 AVD.
     - It may take more than 2 hours to build it from the scratch.
     - To save time, you can use a prebuilt in **/ws/android**. Which only takes
-    about 40 min. to rebuild.
+    few min. to rebuild.
     - Note: the 1st **lunch** can take a few min. for each new VM.
 ```
 echo "Set android folder"

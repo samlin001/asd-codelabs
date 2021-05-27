@@ -3,14 +3,14 @@
 readme() {
 echo '''
 Utility scripts for Android System Development, e.g.
-./asd.sh setupVm
-. ./asd.sh setEnv
-./asd.sh studio
-./asd.sh sync
-./asd.sh buildSdkPhone
-./asd.sh buildAPhone
-./asd.sh runAvd
-./asd.sh avdInfo
+/ws/asd-codelabs/asd.sh setupVm
+. /ws/asd-codelabs/asd.sh setEnv
+asd.sh studio
+asd.sh sync
+asd.sh buildSdkPhone
+asd.sh buildAPhone
+asd.sh runAvd
+asd.sh avdInfo
 '''
 }
 
@@ -42,8 +42,8 @@ setEnv() {
     export ANDROID_SDK_ROOT="${HOME}/Android/Sdk"
   fi
   export PATH=$PATH:/ws/bin:/ws/asd-codelabs
-  alias lunchSdkPhone . build/envsetup.sh && lunch sdk_phone_x86_64-userdebug
-  alias lunchAPhone . build/envsetup.sh && lunch aphone-userdebug
+  alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"
+  alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"
 }
 
 
@@ -52,9 +52,9 @@ studio() {
 }
 
 sync() {
-  cd "${ANDROID_BUILD_TOP}"
   SECONDS=0
-  repo sync -j8
+  cd "${ANDROID_BUILD_TOP}"
+  repo sync -j16
   echo "took ${SECONDS} sec. to sync."
 }
 
