@@ -52,8 +52,12 @@ with all the software required for Android system development:
   - Linux: ubuntu 18.04
   - Python 2.7 as repo depend on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
+    - repo in /ws/bin
+    - android11-qpr2-release source code in /ws/android
   - [Android Studio 4.2.1](https://developer.android.com/studio)
-
+    - Android Studio in /ws/android-studio
+    - Android Sdk in /ws/Android/Sdk
+  - ASD codelabs in /ws/asd-codelabs
 
 ### Steps
 1. Read [Create a VM from a custom image](https://cloud.google.com/compute/docs/instances/create-start-instance#create_a_vm_from_a_custom_image).
@@ -97,6 +101,32 @@ Chrome Remote Desktop.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
     - Note: The Windows app for chrome remote desktop is no longer supported,
     use the web app instead.
+
+## One-time setup of a new VM
+Even the curstom image includes all software, there are still a few steps to make a new VM ready for a user.
+```
+  echo "Check if kvm is enabled for the VM. If not, follow Enabling nested virtualization for VM instances"
+  ls -l /dev/kvm
+  echo "Add yourself to the kvm grols up"
+  sudo adduser ${USER} kvm
+  echo "Ensure the kvm group can access to kvm"
+  sudo chmod 660 /dev/kvm
+  grep kvm /etc/group
+  echo "Make ${USER} as the owner for /ws"
+  sudo chown -R ${USER}:${USER} /ws
+
+  echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
+  ln -s /ws/Android ${HOME}/Android
+  echo 'alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"' >> ~/.bashrc
+  echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
+  echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
+  echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
+```
+- This will take about 3 min. to make you the new owner of /ws/*.
+- [asd.sh](../asd.sh) includes setupVm function to do these steps for you. You can run it in a Terminal & close it. All new Terminal will be ready for development.
+    ```
+      /ws/asd-codelabs/asd.sh setupVm
+    ```
 
 ## Explore the development environment
 1. Find prebuilt Android tree in **/ws/android** in **Terminal**

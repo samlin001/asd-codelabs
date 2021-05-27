@@ -42,9 +42,12 @@ setEnv() {
     export ANDROID_BUILD_TOP="/ws/android"
   fi
   echo "ANDROID_BUILD_TOP=${ANDROID_BUILD_TOP}"
+
   if [[ -z ${ANDROID_SDK_ROOT} ]]; then
     export ANDROID_SDK_ROOT="${HOME}/Android/Sdk"
   fi
+  echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT}"
+
   cd "${ANDROID_BUILD_TOP}"
 }
 
