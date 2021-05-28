@@ -126,6 +126,7 @@ Even the curstom image includes all software, there are still a few steps to mak
 - This will take about 3 min. to make you the new owner of /ws/*.
 - [asd.sh](../asd.sh) includes setupVm function to do these steps for you. You can run it in a Terminal & close it. All new Terminal will be ready for development.
     ```
+      sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
       /ws/asd-codelabs/asd.sh setupVm
     ```
 
@@ -162,7 +163,7 @@ Even the curstom image includes all software, there are still a few steps to mak
     3. Reset the VM & reconnect
     4. Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
           ```
-          cd /ws/Android\ Studio/android-studio/bin
+          cd /ws/android-studio/bin
           ./studio.sh
           ```
     5. Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
