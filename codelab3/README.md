@@ -39,7 +39,7 @@ emulator &
 ```
 
 - Building **aphone** first time can take more than 7 min., but it's better
-than hours becanse it's pretty close to **sdk_phone_x86_64** to reuse many
+than hours because it's pretty close to **sdk_phone_x86_64** to reuse many
 same object files.
 
 6. Check the build fingerprint & Settings -> About emulated device for aphone,
@@ -110,7 +110,7 @@ include $(BUILD_PREBUILT)
 ```
 # ASD aphone apps
 PRODUCT_PACKAGES += \
-		jetsnack
+    jetsnack
 ```
 5. Build & run to check out Jetsnack app is preloaded.
 <img src="res/jetsnack.gif" width="300">
