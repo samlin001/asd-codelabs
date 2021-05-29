@@ -93,7 +93,9 @@ gcloud compute instances create <YOUR_VM_NAME> \
    repo init -u https://android.googlesource.com/platform/manifest -b <SOURCE_TAG>
    repo sync -c -j<THREAD_COUNT>
    ```
-4. Building Android
+4. Install Android studio
+  - Follow the instructions to install Android studio on [Linux](https://developer.android.com/studio/install#linux)
+5. Building Android
    - Run setup script
    ```
    source build/envsetup.sh
