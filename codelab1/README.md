@@ -14,7 +14,7 @@ Alternatively, You can use an existing project if it fits better.
     - Project name: **ASD Codelab1**
     - Keep the Project ID handly as it's the unique identifier for your project.
     **my-project-id** is used as an example. Which should be replaced with the
-    actual Project ID.
+     Project ID.
 
 <img src="res/startProj.png" width="400">
 
@@ -35,10 +35,10 @@ first. So, you can proceed with the following steps.
     - Take the time to get familiar with
     [Running gcloud commands with Cloud Shell](https://cloud.google.com/shell/docs/running-gcloud-commands),
     because you are going to use it a lot in the code labs.
-    - To verify if the project exists, you can list & grap the ID in [Cloud Shell Editor](https://shell.cloud.google.com)
-     as:
+    - To verify if the project exists, you can list & grep the ID in [Cloud Shell Editor](https://shell.cloud.google.com).
+     Remember to replace **asd-codelab1** to the Project ID above.
 ```
-export PROJECT_ID="asd-codelab1"
+export PROJECT_ID="my-project-id"
 gcloud projects list | grep ${PROJECT_ID}
 
 echo "Set the default project for the section"
@@ -47,8 +47,9 @@ gcloud config set project ${PROJECT_ID}
 
 ## Create a VM
 Now, let's create a VM with a custom image for development. By using a custom
-image you can skip many setup steps. In this example, we use a custom image
-with all the software required for Android system development:
+image you can skip many setup steps. In this example, we use the custom image:
+**asd-android11-qpr2**. Wich includes all the software required for Android
+system development:
   - Linux: ubuntu 18.04
   - Python 2.7 as repo depends on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
@@ -87,46 +88,36 @@ gcloud compute instances list
 
 ## Connect to the VM
 There are 2 ways to connect to the VM on the cloud to use it: 1) SSH and 2)
-Chrome Remote Desktop.
+Chrome Remote Desktop(CRD). For the first time setup, you need to use both in that
+order. After the setup, you can use CRD for most of work.
 
 1. SSH
     - In [VM instances](https://console.cloud.google.com/compute/instances), click
 **SSH**,  a web page will be opne & connect to the VM via SSH.
 
+    - One-time setup of a new VM
+        - Even the custom image includes all software, there are still a few
+         steps required to make a new VM ready.
+        - Make yourself as the new owner of /ws/*. This will take about 3 min.
+        ```
+        echo "Make ${USER} as the owner for /ws" && sudo chown -R ${USER}:${USER} /ws
+        ```
+        - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
+         automatically.
+        ```
+          sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
+          /ws/asd-codelabs/asd.sh setupVm
+        ```
+
 <img src="res/SSH.png" width="800">
 
 2. Chrome Remote Desktop
-    - Chrome Remote Desktop provides GUI, which is easier to use. However, it requires more bandwidth than SSH & additional setup.
+    - Chrome Remote Desktop provides GUI, which is easier to use. However, it
+     requires more bandwidth than SSH & additional setup.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
     - To copy & paste between your local machine & the VM, [Enable Clipboard Synchronization](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#enable_clipboard_synchronization).
-    - For Windows users: the Windows app for chrome remote desktop is no longer supported, use the web app instead.
-
-## One-time setup of a new VM
-Even the custom image includes all software, there are still a few steps to make a new VM ready for a user.
-```
-  echo "Check if kvm is enabled for the VM. If not, follow Enabling nested virtualization for VM instances"
-  ls -l /dev/kvm
-  echo "Add yourself to the kvm grols up"
-  sudo adduser ${USER} kvm
-  echo "Ensure the kvm group can access to kvm"
-  sudo chmod 660 /dev/kvm
-  grep kvm /etc/group
-  echo "Make ${USER} as the owner for /ws"
-  sudo chown -R ${USER}:${USER} /ws
-
-  echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
-  ln -s /ws/Android ${HOME}/Android
-  echo 'alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"' >> ~/.bashrc
-  echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
-  echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
-  echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
-```
-- This will take about 3 min. to make you the new owner of /ws/*.
-- [asd.sh](../asd.sh) includes setupVm function to do these steps for you. You can run it in a Terminal & close it. All new Terminal will be ready for development.
-    ```
-      sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
-      /ws/asd-codelabs/asd.sh setupVm
-    ```
+    - For Windows users: the Windows app for chrome remote desktop is no longer
+     supported, use the web app instead.
 
 ## Explore the development environment
 1. Find prebuilt Android tree in **/ws/android** in **Terminal**
@@ -158,7 +149,7 @@ Even the custom image includes all software, there are still a few steps to make
         ```
         grep kvm /etc/group
         ```
-    3. Reset the VM & reconnect
+
     4. Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
           ```
           cd /ws/android-studio/bin

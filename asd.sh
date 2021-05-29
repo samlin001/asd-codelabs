@@ -24,8 +24,6 @@ setupVm() {
   echo "Ensure the kvm group can access to kvm"
   sudo chmod 660 /dev/kvm
   grep kvm /etc/group
-  echo "Make ${USER} as the owner for /ws"
-  sudo chown -R ${USER}:${USER} /ws
 
   echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
   ln -s /ws/Android ${HOME}/Android
@@ -33,6 +31,9 @@ setupVm() {
   echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
   echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
   echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
+
+  echo "Update to the latest asd-codelabs"
+  cd /ws/asd-codelabs && git pull
   echo "setupVm took ${SECONDS} s."
 }
 
