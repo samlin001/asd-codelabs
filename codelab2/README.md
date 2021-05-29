@@ -79,9 +79,9 @@ to check the AVD, e.g.
 ## Extra credits
 
 ### Start Android Emulator differently
-- [Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline)
+- [Start the emulator from the command line](https://developer.android.com/studio/run/emulator-commandline).
 - e.g. try to disable the [Quick Boot](https://developer.android.com/studio/run/emulator#quickboot)
-feature & increase RAM. Check if the AVD runs quicker.
+ feature, increase RAM to 4GB & use 6 CPU cores. Check if the AVD runs quicker.
     ```
     emulator -no-snapshot -memory 4096 -qemu -smp 6 &
     ```

@@ -91,8 +91,8 @@ avdInfo()
 }
 
 if [[ -z $1 ]]; then
-    readme
+  readme
 else
-    echo "Running: $@"
-    $@
+  echo "Running: $@"
+  $@
 fi
