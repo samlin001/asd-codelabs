@@ -22,25 +22,21 @@ Build System to know your build target.
 3. Create [aphone.mk](res/asd/aphone/aphone.mk) to configure your build target.
 4. Create [aphone_product.mk](res/asd/aphone/aphone_product.mk) for the product
 specific build configuration.
-5. Use [asd.sh](../asd.sh), development utility scripts to make your life a bit
-easier.
-
 ```
 echo "Copy make files & scripts from codelab3"
 cp -r /ws/asd-codelabs/codelab3/res/asd ${ANDROID_BUILD_TOP}/device/asd
-
-echo "Build it. Which is equivalent to: asd.sh buildAPhone "
-cd ${ANDROID_BUILD_TOP}
-. build/envsetup.sh && lunch aphone-userdebug
-m -j16
-
-echo "Start your AVD"
-emulator &
 ```
-
-- Building **aphone** first time can take more than 7 min., but it's better
-than hours because it's pretty close to **sdk_phone_x86_64** to reuse many
-same object files.
+5. Use [asd.sh](../asd.sh), development utility scripts to make the setup, build
+ & run workflow easier.
+```
+cd ${ANDROID_BUILD_TOP}
+echo "Setup" && lunchAPhone
+echo "Build" && asd.sh buildAPhone
+echo "Run" && emulator &
+```
+    - Building **aphone** first time can take more than 8 min., but it's better
+     than hours because it's pretty close to **sdk_phone_x86_64** to reuse many
+     same object files.
 
 6. Check the build fingerprint & Settings -> About emulated device for aphone,
 and by **adb**.
