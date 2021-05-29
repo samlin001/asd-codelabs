@@ -146,10 +146,10 @@ order. After the setup, you can use CRD for most of work.
       ```
       /ws/android-studio/bin/studio.sh
       ```
-    5. Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
+    - Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
      from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
      Create a Pixel AVD as needed.
-    6. Double-click the Pixel AVD to run it.
+    - Double-click the Pixel AVD to run it.
 
     <img src="res/startAVDManager.png" width="400">
     <img src="res/pixelAVD.png" width="400">
