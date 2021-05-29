@@ -98,16 +98,22 @@ order. After the setup, you can use CRD for most of work.
     - One-time setup of a new VM
         - Even the custom image includes all software, there are still a few
          steps required to make a new VM ready.
-        - Make yourself as the new owner of /ws/*. This will take about 3 min.
+        - Make yourself as the new owner of /ws/* & get the latest asd-codelabs.
+         This will take about 3 min.
         ```
-        echo "Make ${USER} as the owner for /ws" && sudo chown -R ${USER}:${USER} /ws
+        echo "Make ${USER} as the owner for /ws"
+        sudo chown -R ${USER}:${USER} /ws
+
+        echo "Update asd-codelabs"
+        cd /ws/asd-codelabs && git reset --hard HEAD && git pull
         ```
         - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
          automatically.
         ```
-          sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
+          echo "Avoid Windows Newline issues." && sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
           /ws/asd-codelabs/asd.sh setupVm
         ```
+        - Reset the VM in [VM instances](https://console.cloud.google.com/compute/instances).
 
 <img src="res/SSH.png" width="800">
 
@@ -136,28 +142,14 @@ order. After the setup, you can use CRD for most of work.
 
 3. Run emulator with Android studio
 
-    1. If this is the first run for a new VM, enable **kvm** first.
-        ```
-        echo "Check if kvm is enabled for the VM. If not, follow Enabling nested virtualization for VM instances"
-        ls -l /dev/kvm
-        echo "Add yourself to the kvm grols up"
-        sudo adduser $USER kvm
-        echo "Ensure the kvm group can access to kvm"
-        sudo chmod 660 /dev/kvm
-        ```
-    2. Check if you are in kvm group
-        ```
-        grep kvm /etc/group
-        ```
-
-    4. Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
-          ```
-          cd /ws/android-studio/bin
-          ./studio.sh
-          ```
+    - Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
+      ```
+      /ws/android-studio/bin/studio.sh
+      ```
     5. Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
-    from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
-    6. Double-click the default Pixel AVD to run it.
+     from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
+     Create a Pixel AVD as needed.
+    6. Double-click the Pixel AVD to run it.
 
     <img src="res/startAVDManager.png" width="400">
     <img src="res/pixelAVD.png" width="400">

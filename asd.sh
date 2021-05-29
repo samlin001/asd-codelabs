@@ -31,9 +31,6 @@ setupVm() {
   echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
   echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
   echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
-
-  echo "Update to the latest asd-codelabs"
-  cd /ws/asd-codelabs && git pull
   echo "setupVm took ${SECONDS} s."
 }
 
