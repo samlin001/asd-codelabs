@@ -3,8 +3,8 @@ In this code lab, you will learn how to create a virtual machine on
 Google Cloud Platform(GCP) and access it by Chrome Remote Desktop(CRD) for
 Android system development.
 
-## Android developement on the cloud
-![Android Developement on the cloud](res/Android%20System%20Development%20On%20The%20Cloud.png)
+## Android development on the cloud
+![Android Development on the cloud](res/Android%20System%20Development%20On%20The%20Cloud.png)
 
 ## Create a new GCP project
 In this example, we will create a new project: **ASD Codelab1**.
@@ -12,14 +12,14 @@ Alternatively, You can use an existing project if it fits better.
 
 1. Follow the instructions for [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
     - Project name: **ASD Codelab1**
-    - Keep the Project ID handly as it's the unique identifier for your projec.
-    **my-project-id** is used as the example. Which should be replaced with the
+    - Keep the Project ID handly as it's the unique identifier for your project.
+    **my-project-id** is used as an example. Which should be replaced with the
     actual Project ID.
 
 <img src="res/startProj.png" width="400">
 
 2. If you never enable billing, [Enable billing](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
-first. So, you can proceed the following steps.
+first. So, you can proceed with the following steps.
 
 3. Enable Compute Engine API
     - In [GCP Console](http://console.cloud.google.com/), select the project: **ASD Codelab1**
@@ -41,16 +41,16 @@ first. So, you can proceed the following steps.
 export PROJECT_ID="asd-codelab1"
 gcloud projects list | grep ${PROJECT_ID}
 
-echo "Set the defult project for the section"
+echo "Set the default project for the section"
 gcloud config set project ${PROJECT_ID}
 ```
 
 ## Create a VM
 Now, let's create a VM with a custom image for development. By using a custom
-image you can skip many set up setps. In this example, we use a custom image
+image you can skip many setup steps. In this example, we use a custom image
 with all the software required for Android system development:
   - Linux: ubuntu 18.04
-  - Python 2.7 as repo depend on it.
+  - Python 2.7 as repo depends on it.
   - Set up for [Downloading Android Source](https://source.android.com/setup/build/downloading)
     - repo in /ws/bin
     - android11-qpr2-release source code in /ws/android
@@ -86,7 +86,7 @@ gcloud compute instances list
 <img src="res/VerifyVMCreation.png" width="800">
 
 ## Connect to the VM
-There are 2 ways to connect to the the VM on the cloud to use it: 1) SSH and 2)
+There are 2 ways to connect to the VM on the cloud to use it: 1) SSH and 2)
 Chrome Remote Desktop.
 
 1. SSH
@@ -96,15 +96,13 @@ Chrome Remote Desktop.
 <img src="res/SSH.png" width="800">
 
 2. Chrome Remote Desktop
-    - Chrome Remote Desktop provides GUI, which is easier to use. However, it
-    requires more bandwith than SSH & additional set up.
+    - Chrome Remote Desktop provides GUI, which is easier to use. However, it requires more bandwidth than SSH & additional setup.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
     - To copy & paste between your local machine & the VM, [Enable Clipboard Synchronization](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#enable_clipboard_synchronization).
-    - For Windows users: the Windows app for chrome remote desktop is no longer
-    supported, use the web app instead.
+    - For Windows users: the Windows app for chrome remote desktop is no longer supported, use the web app instead.
 
 ## One-time setup of a new VM
-Even the curstom image includes all software, there are still a few steps to make a new VM ready for a user.
+Even the custom image includes all software, there are still a few steps to make a new VM ready for a user.
 ```
   echo "Check if kvm is enabled for the VM. If not, follow Enabling nested virtualization for VM instances"
   ls -l /dev/kvm
@@ -179,7 +177,7 @@ to reduce [the change](https://cloud.google.com/compute/docs/instances/instance-
 
 - Get to know [VM instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
 - To manage it, go to [VM instances](https://console.cloud.google.com/compute/instances),
-to click STOP, START & etc. as fit, e.g.
+to click STOP, START &, etc. as fit, e.g.
 
 <img src="res/Stop_resume.png" width="800">
 
