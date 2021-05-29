@@ -2,6 +2,8 @@
 In this code lab, you will learn how to build an Android Virtual Device(AVD),
 sdk_phone_x86_64 on the cloud.
 
+The whole code lab should take around 30 minutes
+
 ## Android build process in a nutshell
 ![Android Build Process](res/Android%20Build%20Process.png)
 

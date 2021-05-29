@@ -2,6 +2,8 @@
 In this code lab, you will learn how to create a new AVD target and change its
 boot animation.
 
+The whole code lab should take around 40 minutes
+
 ## Android build anatomy
 ![Android Build Layers](res/Android_Build_Layers.png)
 1. [Understanding build layers](https://source.android.com/setup/develop/new-device#build-layers)
@@ -64,6 +66,8 @@ cp ${ANDROID_BUILD_TOP}/device/google/atv/products/bootanimations/bootanimation.
 ```
 
 3. Add it to the makefile, $ANDROID_BUILD_TOP/device/asd/aphone/aphone.mk, e.g.
+
+    Press **i** to enter insert mode, **esc** to exit insert mode, type in :wq then **enter** to save. For more detail, check out the the Refrence section
 ```
 # Boot animation
 PRODUCT_COPY_FILES += \
@@ -119,3 +123,5 @@ PRODUCT_PACKAGES += \
 5. How to build for Smarter Cars too: [Android Virtual Device as a Development
 Platform](https://source.android.com/devices/automotive/start/avd?hl=en)
 
+## Refrence
+- [Vim cheet sheet](https://vim.rtorr.com/)

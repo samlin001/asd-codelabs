@@ -3,6 +3,8 @@ In this code lab, you will learn how to create a virtual machine on
 Google Cloud Platform(GCP) and access it by Chrome Remote Desktop(CRD) for
 Android system development.
 
+The whole code lab should take around 30 minutes
+
 ## Android development on the cloud
 ![Android Development on the cloud](res/Android%20System%20Development%20On%20The%20Cloud.png)
 
@@ -166,6 +168,8 @@ to click STOP, START &, etc. as fit, e.g.
 
 #### Cleanup
 If a VM is no longer needed, you can [delete it](https://cloud.google.com/compute/docs/instances/deleting-instance).
+
+## Troble shooting
 
 ## Extra Credits
 - [The gcloud command-line tool cheat sheet](https://cloud.google.com/sdk/docs/cheatsheet)
