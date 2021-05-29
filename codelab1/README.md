@@ -179,7 +179,10 @@ to click STOP, START &, etc. as fit, e.g.
 If a VM is no longer needed, you can [delete it](https://cloud.google.com/compute/docs/instances/deleting-instance).
 
 ## Troble shooting
-
+- Needing password for sudo in SSH
+  - Close the current SSH window and start it again
+- Needing password for sudo in Chrome remote desktop
+  -
 ## Extra Credits
 - [The gcloud command-line tool cheat sheet](https://cloud.google.com/sdk/docs/cheatsheet)
 - [Linux cheat sheet](https://linoxide.com/images/linux-cheat-sheet-612x792.png)
