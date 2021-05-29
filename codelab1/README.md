@@ -110,10 +110,14 @@ order. After the setup, you can use CRD for most of work.
         - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
          automatically.
         ```
+          echo ".bashrc is the setup script for each new shell section.
+          tail ~/.bashrc
           echo "Avoid Windows Newline issues." && sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
           /ws/asd-codelabs/asd.sh setupVm
+          tail ~/.bashrc
+          echo "You should see new lines added & the last line is: export PATH=..."
         ```
-        - Reset the VM in [VM instances](https://console.cloud.google.com/compute/instances).
+        - Stop and then Start the VM in [VM instances](https://console.cloud.google.com/compute/instances).
 
 <img src="res/SSH.png" width="800">
 
@@ -126,21 +130,26 @@ order. After the setup, you can use CRD for most of work.
      supported, use the web app instead.
 
 ## Explore the development environment
-1. Find prebuilt Android tree in **/ws/android** in **Terminal**
+1. Check the one-time setup
+    ```
+    echo "List development command alias & you should see studio, etc." && alias
+    echo "List functions in asd.sh & you should see asd.sh avdInfo, etc." && asd.sh
+    ```
+2. Find prebuilt Android tree in **/ws/android** in **Terminal**
     ```
     ls -l /ws/android
     echo "Open it in File Manager"
     xdg-open /ws/android
     ```
 
-2. asd-codelabs project is cloned in **/ws/asd-codelabs** in **Terminal**
+3. asd-codelabs project is cloned in **/ws/asd-codelabs** in **Terminal**
     ```
     ls -l /ws/asd-codelabs
     echo "Open it in File Manager"
     xdg-open /ws/asd-codelabs
     ```
 
-3. Run emulator with Android studio
+4. Run emulator with Android studio
 
     - Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
       ```
