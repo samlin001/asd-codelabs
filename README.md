@@ -8,5 +8,5 @@ So that, anyone can learn all aspects of A system development by building an OS,
 3. [Create Your Own AVD On The Cloud](codelab3/README.md).
 
 ## Feedback & Known Issues
-Your feedback & issues are welcome. Please check them out at github.com/samlin001/asd-codelabs/issues
-& [Create a new issue](github.com/samlin001/asd-codelabs/issues/new) as fit.
+Your feedback & issues are welcome. Please check them out at [github.com/samlin001/asd-codelabs/issues](https://github.com/samlin001/asd-codelabs/issues)
+& [Create a new issue](https://github.com/samlin001/asd-codelabs/issues/new) as fit.
