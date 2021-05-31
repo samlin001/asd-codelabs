@@ -7,7 +7,7 @@ So that, anyone can learn all aspects of A system development by building an OS,
 2. Why Android Virtual Device?
   - Because a high fidelity emulation tool removes HW barriers for rapid prototyping, fast iteration, easier automation & work from anywhere. A good way to leverage [the power of SoftWare-Defined](https://samlin001.medium.com/the-new-age-of-software-defined-2ae97c6d3281).
 3. Why the Cloud?
-  - Because it lowers the entry batter as only a browser needed to get started & can scale multiple development setup or a big development team quicker.
+  - Because it lowers the entry batter as only a browser needed to get started & easy to scale multiple development setups or a big development team quicker.
 
 ## Code Labs
 1. [Set Up A System Development Environment on The Cloud](codelab1/README.md).
