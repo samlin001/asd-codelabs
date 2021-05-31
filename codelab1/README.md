@@ -3,8 +3,8 @@ In this code lab, you will learn how to create a virtual machine on
 Google Cloud Platform(GCP) and access it by Chrome Remote Desktop(CRD) for
 Android system development.
 
-## Android development on the cloud
-![Android Development on the cloud](res/Android%20System%20Development%20On%20The%20Cloud.png)
+## Nested VMs on the Cloud
+![Nested VM on the cloud](res/NestedVMs.png)
 
 ## Create a new GCP project
 In this example, we will create a new project: **ASD Codelab1**.
