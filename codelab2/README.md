@@ -20,7 +20,9 @@ development universe.
 2. Read [Downloading the Source](https://source.android.com/setup/build/downloading)
 to learn more.
 3. A typical download flow for **android11-qpr2-release**.
-    - This will take a long time to sync. To save time, follow the next step.
+    - This will take 40 min. or more to do a clean download depending on the
+    network connection speed & computer performance. To save time, jump to the
+    next step.
     ```
     mkdir -p $HOME/ws/android
     cd $HOME/ws/android
@@ -31,7 +33,10 @@ to learn more.
 4. For a quickstart, use **/ws/android** in the codelab1 VM, **asd-vm1**.
     - **/ws/android** has android11-qpr2-release downloaded in the custom
     image.
-    - You don't need to do this, but just for fun, you may re-sync it. It'll only take about 4 min. to re-sync.
+    - You don't need to do this, but just for fun, you may re-sync it. It'll
+     still take about 4+ min. to sync again. Where **repo** just compare the
+      logcal projects against to their remote counterparts to see if any update
+      is needed.
     ```
     cd /ws/android
     repo sync -j16
@@ -42,9 +47,15 @@ to learn more.
 know more details.
 
 2. A quickstart to build sdk_phon_x86_64 AVD.
-    - It may take more than 2 hours to build it from the scratch.
-    - To save time, you can use a prebuilt in **/ws/android**. Which only takes a few min. to rebuild.
-    - Note: the 1st **lunch** can take a few min. for each new VM.
+    - It may take more than 2 hours to do a **Clean Build** for an Android device.
+     The build time depends on computer performances, especially on CPU & storage.
+    - To save time, you can use **/ws/android**, which is prebuilt with
+     sdk_phone_x86_64-userdebug in **/ws/android/out**. This is a kind of
+      **Incremental Build**. It's much fast, e.g. a few min, because there's no
+       need to re-build most object files.
+    - You may even experiment a different disk performance, e.g. by [disk size](https://cloud.google.com/compute/docs/disks/performance#performance_by_disk_size)
+     to see how that affect its build time.
+    - Note: the 1st **lunch** can take a few min. for each new VM section.
 ```
 echo "Set android folder"
 export ANDROID_BUILD_TOP="/ws/android"
