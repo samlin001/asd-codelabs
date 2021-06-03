@@ -90,8 +90,55 @@ sudo adduser $USER kvm
    
    
 ### Pre-build Andorid
+[Download from Android source tree](https://source.android.com/setup/build/downloading)
+
+   - Config Git enviroemnt
+   ```
+   git config --global user.name <YOUR_NAME>
+   git config --global user.email <YOUR@EMAIL.COM>
+   ```
+   - Downliad source
+
+   Note: If you want to sync the main branch, remove -b <SOURCE_TAG> from the command.
+
+   The list of tags can be found on [Source code tags and builds](https://source.android.com/setup/start/build-numbers#source-code-tags-and-builds), as well as [Branches](https://android.googlesource.com/platform/manifest/+refs)
+   ```
+   mkdir -p $HOME/ws/android
+   cd $HOME/ws/android
+   repo init -u https://android.googlesource.com/platform/manifest -b <SOURCE_TAG>
+   repo sync -c -j<THREAD_COUNT>
+   ```
+4. Install Android studio
+  - Follow the instructions to install Android studio on [Linux](https://developer.android.com/studio/install#linux)
+5. Building Android
+   - Run setup script
+   ```
+   source build/envsetup.sh
+   ```
+   - Build target
+     - Use ``` lunch ``` with no additional arguments to check all avalible variants.
+     - This process can take around 3~5 hours to finish depending on the computing power
+     - You can speed up the build process by adding additional threads, that however is limited by computing engine
+   ```
+   lunch <TARGET_VARIANT> \
+   m -j<THREAD_COUNT>
+   ```
+
 ### Clean up
 ### Create and publish image
+```
+gcloud compute images create <YOUR_IMAGE_NAME> \
+    --source-disk=<SOURCE_DISK> \
+    --source-disk-zone=<ZONE> \
+    --licenses https://compute.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
+    --force
+```
+
+```
+gcloud compute images add-iam-policy-binding <YOUR_IMAGE_NAME> \
+    --member='allAuthenticatedUsers' \
+    --role='roles/compute.imageUser'
+```
 
 
 
