@@ -4,9 +4,9 @@ This codelab will show you how to create a custom image for ASD from scratch.
 ## Steps
 1. Create a VM
 2. Chrome remote desktop
-3. Setting up build enviroment and build](https://github.com/Alwin-Lin/gcpSetup#setting-up-build-enviroment-and-build)
-4. [Creating an image from vm](https://github.com/Alwin-Lin/gcpSetup#creating-an-image-from-vm)
-5. [Sharing images to public](https://github.com/Alwin-Lin/gcpSetup#sharing-images-to-public)
+3. Setting up build enviroment and build
+4. Creating an image from vm
+5. Sharing images to public
 
 ### Create a VM to config the development enviroment
 - Understand [the public and custom images](https://cloud.google.com/compute/docs/images).
@@ -41,77 +41,72 @@ gcloud compute instances create <YOUR_VM_NAME> \
 ```
 
 ### Setup Chrome Remote Desktop(CRD) to acess GUI
-- Use Cinnamon for better result
+Use Cinnamon for better result
 - [Installing Chrome Remote Desktop on the VM instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_chrome_remote_desktop_on_the_vm_instance)
 - [Installing Cinnamon desktop environment](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_an_x_windows_system_desktop_environment)
 - [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
-- terminal freen on black
+- (Optional) Changing terminal scheme
+  - Edit > Prefrences > Colors > Built-in schemes: Green on black
 ### Install softwares
 - [Setup environment](https://source.android.com/setup/build/initializing)
 ```
    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
    ```
 - Python 2.7
-   - Note: Stick with 2.7 for now, using python 3 can cause problems when useing repo
-```
-sudo apt-get install python
-```
+  - Note: Stick with 2.7 for now, using python 3 can cause problems when useing repo
+  ```
+  sudo apt-get install python
+  ```
 - Libncurses
-```
-sudo apt-get install libncurses5
-```
+  ```
+  sudo apt-get install libncurses5
+  ```
 - [repo](https://source.android.com/setup/develop#installing-repo)
-```
-mkdir ~/bin
-PATH=~/bin:$PATH
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-chmod a+x ~/bin/repo
-```
+  ```
+  mkdir ~/bin
+  PATH=~/bin:$PATH
+  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+  chmod a+x ~/bin/repo
+  ```
 - Java
-```
-sudo apt update
-sudo apt install default-jre
-```
+  ```
+  sudo apt update
+  sudo apt install default-jre
+  ```
 - qemu-system-x86 (Only for Ubuntu 18.04)
-```
-sudo apt update
-sudo apt install qemu-system-x86
-```
+  ```
+  sudo apt update
+  sudo apt install qemu-system-x86
+  ```
 - qemu-kvm (Only for Ubuntu 18.04)
-```
-sudo apt install qemu-kvm
-sudo adduser $USER kvm
-```
+  ```
+  sudo apt install qemu-kvm
+  sudo adduser $USER kvm
+  ```
 - VS code
-  - move everything to WS 
+  - move everything to WS
 - Android studio
-  - Create and build empty app(reduce AS build time)
-   - For Ubuntu 18.04
-   
-   
+  - Follow the instructions to [install Android studio on Linux](https://developer.android.com/studio/install#linux)
+
 ### Pre-build Andorid
-[Download from Android source tree](https://source.android.com/setup/build/downloading)
-
-   - Config Git enviroemnt
-   ```
-   git config --global user.name <YOUR_NAME>
-   git config --global user.email <YOUR@EMAIL.COM>
-   ```
-   - Downliad source
-
-   Note: If you want to sync the main branch, remove -b <SOURCE_TAG> from the command.
+By default repo will download from the main source tree, if you wish to download a specific branch, add ```-b <SOURCE_TAG>``` at the end of ```repo init```
 
    The list of tags can be found on [Source code tags and builds](https://source.android.com/setup/start/build-numbers#source-code-tags-and-builds), as well as [Branches](https://android.googlesource.com/platform/manifest/+refs)
-   ```
-   mkdir -p $HOME/ws/android
-   cd $HOME/ws/android
-   repo init -u https://android.googlesource.com/platform/manifest -b <SOURCE_TAG>
-   repo sync -c -j<THREAD_COUNT>
-   ```
-4. Install Android studio
-  - Follow the instructions to install Android studio on [Linux](https://developer.android.com/studio/install#linux)
-5. Building Android
-   - Run setup script
+
+  - Config Git enviroemnt
+    ```
+    git config --global user.name <YOUR_NAME>
+    git config --global user.email <YOUR@EMAIL.COM>
+    ```
+  - Downliad source
+  ```
+  mkdir -p $HOME/ws/android
+  cd $HOME/ws/android
+  repo init -u https://android.googlesource.com/platform/manifest
+  repo sync -c -j 64
+  ```
+
+- Building Android
    ```
    source build/envsetup.sh
    ```
@@ -120,16 +115,17 @@ sudo adduser $USER kvm
      - This process can take around 3~5 hours to finish depending on the computing power
      - You can speed up the build process by adding additional threads, that however is limited by computing engine
    ```
-   lunch <TARGET_VARIANT> \
+   lunch  \
    m -j<THREAD_COUNT>
    ```
 
 ### Clean up
 ### Create and publish image
+After cleaning up,
 ```
 gcloud compute images create <YOUR_IMAGE_NAME> \
-    --source-disk=<SOURCE_DISK> \
-    --source-disk-zone=<ZONE> \
+    --source-disk=<YOUR_DISK_NAME> \
+    --source-disk-zone=<YOUR_DISK_ZONE> \
     --licenses https://compute.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
     --force
 ```
