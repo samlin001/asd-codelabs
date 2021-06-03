@@ -121,7 +121,9 @@ By default repo will download from the main source tree, if you wish to download
 
 ### Clean up
 ### Create and publish image
-After cleaning up,
+1. Read about [Compute image User role](https://cloud.google.com/compute/docs/access/iam#compute.imageUser)
+2. Exit out of cloud shell and stop the instance
+3. Create an image
 ```
 gcloud compute images create <YOUR_IMAGE_NAME> \
     --source-disk=<YOUR_DISK_NAME> \
@@ -129,13 +131,12 @@ gcloud compute images create <YOUR_IMAGE_NAME> \
     --licenses https://compute.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx
     --force
 ```
-
+4. Making the image pulic
 ```
 gcloud compute images add-iam-policy-binding <YOUR_IMAGE_NAME> \
     --member='allAuthenticatedUsers' \
     --role='roles/compute.imageUser'
 ```
-
 
 
 ## Creating your own image:
