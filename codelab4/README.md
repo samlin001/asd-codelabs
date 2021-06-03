@@ -47,10 +47,48 @@ gcloud compute instances create <YOUR_VM_NAME> \
 - [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
 - terminal freen on black
 ### Install softwares
+- [Setup environment](https://source.android.com/setup/build/initializing)
+```
+   sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+   ```
+- Python 2.7
+   - Note: Stick with 2.7 for now, using python 3 can cause problems when useing repo
+```
+sudo apt-get install python
+```
+- Libncurses
+```
+sudo apt-get install libncurses5
+```
+- [repo](https://source.android.com/setup/develop#installing-repo)
+```
+mkdir ~/bin
+PATH=~/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+```
+- Java
+```
+sudo apt update
+sudo apt install default-jre
+```
+- qemu-system-x86 (Only for Ubuntu 18.04)
+```
+sudo apt update
+sudo apt install qemu-system-x86
+```
+- qemu-kvm (Only for Ubuntu 18.04)
+```
+sudo apt install qemu-kvm
+sudo adduser $USER kvm
+```
 - VS code
   - move everything to WS 
 - Android studio
   - Create and build empty app(reduce AS build time)
+   - For Ubuntu 18.04
+   
+   
 ### Pre-build Andorid
 ### Clean up
 ### Create and publish image
