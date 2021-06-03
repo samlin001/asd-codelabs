@@ -5,6 +5,7 @@ echo '''
 Utility scripts for Android System Development, e.g.
 /ws/asd-codelabs/asd.sh setupVm
 . /ws/asd-codelabs/asd.sh setEnv
+asd.sh go
 asd.sh studio
 asd.sh sync
 asd.sh buildSdkPhone
@@ -47,6 +48,16 @@ setEnv() {
   echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT}"
 
   cd "${ANDROID_BUILD_TOP}"
+}
+
+go() {
+  echo "Open useful sites for reference."
+  xdg-open https://github.com/samlin001/asd-codelabs
+  xdg-open https://devhints.io/command_line
+  xdg-open https://devhints.io/bash
+  xdg-open https://devhints.io/vim
+  xdg-open https://cloud.google.com/sdk/docs/cheatsheet
+  xdg-open https://github.com/android/compose-samples/releases/tag/v1.0.0-beta07
 }
 
 sync() {
