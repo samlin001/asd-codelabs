@@ -83,10 +83,12 @@ Use Cinnamon for better result
   sudo apt install qemu-kvm
   sudo adduser $USER kvm
   ```
-- VS code
-  - move everything to WS
+- Visual Studio code
+  - VS allows user to edit documents without using vim
+  - [Install Visual Studio on Linux](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
 - Android studio
   - Follow the instructions to [install Android studio on Linux](https://developer.android.com/studio/install#linux)
+  - After installing, open up Android Studio and create a blank project, this will speed up the setup for others.
 
 ### Pre-build Andorid
 By default repo will download from the main source tree, if you wish to download a specific branch, add ```-b <SOURCE_TAG>``` at the end of ```repo init```
@@ -120,6 +122,9 @@ By default repo will download from the main source tree, if you wish to download
    ```
 
 ### Clean up
+- Remove yourself from KVM group
+- [Deauthorize Chrome Remote Desktop for the instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#deauthorize_chrome_remote_desktop_for_the_instance)
+- Todo: Add in cleanup [LiveCDCustomization](https://help.ubuntu.com/community/LiveCDCustomization)
 ### Create and publish image
 1. Read about [Compute image User role](https://cloud.google.com/compute/docs/access/iam#compute.imageUser)
 2. Exit out of cloud shell and stop the instance
