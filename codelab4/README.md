@@ -8,12 +8,15 @@
     - [Sharing images to public](https://github.com/Alwin-Lin/gcpSetup#sharing-images-to-public)
 
 ## Android cloud build
+
 ### Create VM with exsisting image
 - Before running the createVMwithImg file, remember to change the <YOUR_VM_NAME>
 - If you are using the VM for building Android, it needs at least 400 GB, [250Gb for Android source, 150Gb to build](https://source.android.com/setup/build/requirements#hardware-requirements)
 
 ```
 gcloud compute instances create <YOUR_VM_NAME> \
+    --enable-nested-virtualization \
+    --min-cpu-platform="Intel Haswell"
     --image-project=<PROJECT_NAME_OF_THE_IMAGE> \
     --image=<IMAGE_NAME> \
     --machine-type=<MACHINE_TYPE>
