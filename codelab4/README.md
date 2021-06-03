@@ -3,6 +3,7 @@
     - [Create VM with exsisting image](https://github.com/Alwin-Lin/gcpSetup/blob/master/README.md#create-vm-with-exsisting-image)
 - Createing and publishing customised image
     - [Creating the VM](https://github.com/Alwin-Lin/gcpSetup#creating-the-vm)
+    - Chrome remote desktop
     - [Setting up build enviroment and build](https://github.com/Alwin-Lin/gcpSetup#setting-up-build-enviroment-and-build)
     - [Creating an image from vm](https://github.com/Alwin-Lin/gcpSetup#creating-an-image-from-vm)
     - [Sharing images to public](https://github.com/Alwin-Lin/gcpSetup#sharing-images-to-public)
