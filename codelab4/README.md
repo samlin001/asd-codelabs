@@ -115,8 +115,8 @@ By default repo will download from the main source tree, if you wish to download
      - This process can take around 3~5 hours to finish depending on the computing power
      - You can speed up the build process by adding additional threads, that however is limited by computing engine
    ```
-   lunch  \
-   m -j<THREAD_COUNT>
+   lunch 30 \
+   m -j 64
    ```
 
 ### Clean up
