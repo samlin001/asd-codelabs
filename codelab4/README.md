@@ -1,29 +1,62 @@
-# Table of content
- - Android cloud build
-    - [Create VM with exsisting image](https://github.com/Alwin-Lin/gcpSetup/blob/master/README.md#create-vm-with-exsisting-image)
-- Createing and publishing customised image
-    - [Creating the VM](https://github.com/Alwin-Lin/gcpSetup#creating-the-vm)
-    - Chrome remote desktop
-    - [Setting up build enviroment and build](https://github.com/Alwin-Lin/gcpSetup#setting-up-build-enviroment-and-build)
-    - [Creating an image from vm](https://github.com/Alwin-Lin/gcpSetup#creating-an-image-from-vm)
-    - [Sharing images to public](https://github.com/Alwin-Lin/gcpSetup#sharing-images-to-public)
+# Customize your own development enviroment
+This codelab will show you how to create a custom image for ASD from scratch.
 
-## Android cloud build
+## Steps
+1. Create a VM
+2. Chrome remote desktop
+3. Setting up build enviroment and build](https://github.com/Alwin-Lin/gcpSetup#setting-up-build-enviroment-and-build)
+4. [Creating an image from vm](https://github.com/Alwin-Lin/gcpSetup#creating-an-image-from-vm)
+5. [Sharing images to public](https://github.com/Alwin-Lin/gcpSetup#sharing-images-to-public)
 
-### Create VM with exsisting image
-- Before running the createVMwithImg file, remember to change the <YOUR_VM_NAME>
-- If you are using the VM for building Android, it needs at least 400 GB, [250Gb for Android source, 150Gb to build](https://source.android.com/setup/build/requirements#hardware-requirements)
+### Create a VM to config the development enviroment
+- Understand [the public and custom images](https://cloud.google.com/compute/docs/images).
+- Recomended machine specs
+  - What are the [Machine types](https://cloud.google.com/compute/docs/machine-types)?
+    - How do I [Create a VM instance with a custom machine type](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#create)?
+  - Recomand to use at least 520 GB for boot disk size, for [better performance](https://cloud.google.com/compute/docs/disks/performance#performance_by_disk_size).
+    - If you are using the VM for building Android, it needs at least 400 GB, [250Gb for Android source, 150Gb to build](https://source.android.com/setup/build/requirements#hardware-requirements)
+- You can either start with an exsisting custom image, or a public Linux image.
 
+#### Base on an exsisting custom image
+If you just want to add new software or change some configuration, this is a good option for you.
 ```
 gcloud compute instances create <YOUR_VM_NAME> \
     --enable-nested-virtualization \
+    --machine-type n1-highcpu-32 \
     --min-cpu-platform="Intel Haswell"
     --image-project=<PROJECT_NAME_OF_THE_IMAGE> \
     --image=<IMAGE_NAME> \
-    --machine-type=<MACHINE_TYPE>
 ```
-- What are the [Machine types](https://cloud.google.com/compute/docs/machine-types)?
-- How do I [Create a VM instance with a custom machine type](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#create)?
+
+#### Base on a Linux public image
+To build from scarch, follow the instruction.
+```
+gcloud compute instances create <YOUR_VM_NAME> \
+    --enable-nested-virtualization \
+    --machine-type n1-highcpu-32 \
+    --min-cpu-platform="Intel Haswell"
+    --image-family=ubuntu-1804-lts
+    --image-project=ubuntu-os-cloud
+    --create-disk size=520,type=pd-standard
+```
+
+### Setup Chrome Remote Desktop(CRD) to acess GUI
+- Use Cinnamon for better result
+- [Installing Chrome Remote Desktop on the VM instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_chrome_remote_desktop_on_the_vm_instance)
+- [Installing Cinnamon desktop environment](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_an_x_windows_system_desktop_environment)
+- [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
+- terminal freen on black
+### Install softwares
+- VS code
+  - move everything to WS 
+- Android studio
+  - Create and build empty app(reduce AS build time)
+### Pre-build Andorid
+### Clean up
+### Create and publish image
+
+
+
 ## Creating your own image:
 ### Why?
 - Saves time, no more waiting for android to build, and no more setting up enviroment
