@@ -110,12 +110,15 @@ order. After the setup, you can use CRD for most of work.
         - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
          automatically.
         ```
-          echo ".bashrc is the setup script for each new shell section.
+          echo ".bashrc is the setup script for each new shell section."
           tail ~/.bashrc
+          
           echo "Avoid Windows Newline issues." && sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
           /ws/asd-codelabs/asd.sh setupVm
-          tail ~/.bashrc
+          
           echo "You should see new lines added & the last line is: export PATH=..."
+          tail ~/.bashrc
+          
         ```
         - Stop and then Start the VM in [VM instances](https://console.cloud.google.com/compute/instances).
 
