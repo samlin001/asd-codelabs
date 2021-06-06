@@ -8,7 +8,7 @@ anywhere.
 ![Android Development on the cloud](res/ASDotC.png)
 
 1. Why [AOSP](https://source.android.com/)?
-  - Because the full stack of A system empowers the permissionless innovation
+  - Because the full stack of A system enables the permissionless innovation
    for anyone.
 2. Why Android Virtual Device?
   - Because a high fidelity emulation tool removes HW barriers for rapid
@@ -22,6 +22,7 @@ anywhere.
 1. [Set Up A System Development Environment on The Cloud](codelab1/README.md).
 2. [Build An Android Virtual Device On The Cloud](codelab2/README.md).
 3. [Create Your Own AVD On The Cloud](codelab3/README.md).
+4. [Customize your own development environment](codelab4/README.md)
 
 ## Feedback & Known Issues
 Your feedback & issues are welcome. Please check them out at [github.com/samlin001/asd-codelabs/issues](https://github.com/samlin001/asd-codelabs/issues)
