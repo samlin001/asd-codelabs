@@ -26,8 +26,8 @@ is just getting started.
 Tech. & be a role model to inspire high schoolers.
 - Introduction to Computer System 101 to show how theories power our digital lives.
 - Practical code labs to build Android Virtual Device on Google Cloud Platform
-for a taste of next-generation development workflows & a bit of hands-on
-satisfaction.
+for a taste of [the next-generation development workflows](https://medium.com/geekculture/wwdc21-minority-report-ac4b531a0035)
+& a bit of hands-on satisfaction.
 
 ## Key Outcomes
 - Set up a developer machine on the cloud by a Browser anywhere.
