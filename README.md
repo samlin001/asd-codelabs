@@ -2,19 +2,24 @@
 ![Compute A Better Future](res/computeAFuture.png)
 tl;dr How we may level the playing field for better divested CS talent pipelines.
 
-- [ASD code labs](codelabs.md) are continuously developing as workshops for
+- [ASD code labs](codelabs.md) are developed as a workshop for
 [Google's Code Next](https://codenext.withgoogle.com/). Which works with
 high schoolers to cultivate the next generation of Black and Latinx tech leaders.
-- It is developed in open. So that any passionate in bootstrapping CS talent
+- It'll continuously develop in open. So that any passionate in bootstrapping CS talent
 pipeline in their community can use them.
-- Any contribution is welcome. Let's make a dent in the consumer computing universe.
+- Any contribution is welcome. Let's make a dent in the consumer computing universe by getting more started.
 
 ## Why
-- [CS-literacy is a skill in high demand](https://samlin001.medium.com/stay-open-push-forward-a64ef27c91f0).
-But the talent gap is widering.
 - How may we expand the future diversified talent pipeline for Tech.?
 - How can we level the playing field by removing the entry barriers? What if students do not need a powerful computer?
 - How to work from anywhere easier?
+
+### Why Now
+Because
+- [CS-literacy is a skill in high demand](https://samlin001.medium.com/stay-open-push-forward-a64ef27c91f0).
+But the talent gap is widering.
+- [The New Age Of Software-Defined](https://samlin001.medium.com/the-new-age-of-software-defined-2ae97c6d3281)
+is just getting started.
 
 ## How
 - Coaches from Tech. to share their CS journeys to share what's like to work in
