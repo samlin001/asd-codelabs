@@ -1,6 +1,7 @@
 # Android System Development On The Cloud
-![Compute A Better Future](res/computeAFuture.png)
 tl;dr How we may level the playing field for better divested CS talent pipelines.
+
+![Compute A Better Future](res/computeAFuture.png)
 
 - [ASD code labs](codelabs.md) are developed as a workshop for
 [Google's Code Next](https://codenext.withgoogle.com/). Which works with
