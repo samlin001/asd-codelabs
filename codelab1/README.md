@@ -99,7 +99,7 @@ order. After the setup, you can use CRD for most of work.
         - Even the custom image includes all software, there are still a few
          steps required to make a new VM ready.
         - Make yourself as the new owner of /ws/* & get the latest asd-codelabs.
-         This will take about 3 min.
+         This will take about 5 min. to make you the owner of many files.
         ```
         echo "Make ${USER} as the owner for /ws"
         sudo chown -R ${USER}:${USER} /ws
