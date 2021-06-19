@@ -47,7 +47,7 @@ gcloud config set project ${PROJECT_ID}
 
 ## Create a VM
 Now, let's create a VM with a custom image for development. By using a custom
-image you can skip many setup steps. In this example, we use the custom image:
+image you can skip many set up steps. In this example, we use the custom image:
 **asd-android11-qpr2**. Wich includes all the software required for Android
 system development:
   - Linux: ubuntu 18.04
@@ -72,15 +72,18 @@ Cloud Shell.
 In [Cloud Shell Editor](https://shell.cloud.google.com):
 ```
 gcloud compute instances create asd-vm1 \
+  --zone=us-west2-a \
+  --machine-type n1-highcpu-16 \
+  --enable-nested-virtualization \
+  --min-cpu-platform="Intel Haswell" \
   --image-project=asd-codelab1 \
-  --image=asd-android11-qpr2 \
-  --custom-extensions --custom-cpu=8 --custom-memory=32GB \
-  --min-cpu-platform "Intel Haswell" \
-  --zone=us-west2-a
+  --image=asd-android11-qpr2
 
-echo "List VMs"
-gcloud compute instances list
+echo "List VMs" && gcloud compute instances list
 ```
+
+- [Regions and zones](https://cloud.google.com/compute/docs/regions-zones)
+- [N1 high-CPU machine types](https://cloud.google.com/compute/docs/machine-types?hl=en#highcpu)
 
 3. You can also check it at the console: [VM instances](https://console.cloud.google.com/compute/instances).
 
@@ -88,12 +91,12 @@ gcloud compute instances list
 
 ## Connect to the VM
 There are 2 ways to connect to the VM on the cloud to use it: 1) SSH and 2)
-Chrome Remote Desktop(CRD). For the first time setup, you need to use both in that
-order. After the setup, you can use CRD for most of work.
+Chrome Remote Desktop (CRD). For the first time setup, you need to use both in that
+order. After the setup successfully, you can use CRD for most of work.
 
 1. SSH
     - In [VM instances](https://console.cloud.google.com/compute/instances), click
-**SSH**,  a web page will be opne & connect to the VM via SSH.
+**SSH** to open a web page & connect to the VM via SSH.
 
     - One-time setup of a new VM
         - Even the custom image includes all software, there are still a few
@@ -102,10 +105,11 @@ order. After the setup, you can use CRD for most of work.
          This will take about 5 min. to make you the owner of many files.
         ```
         echo "Make ${USER} as the owner for /ws"
-        sudo chown -R ${USER}:${USER} /ws
+        SECONDS=0 && sudo chown -R ${USER}:${USER} /ws && echo "seconds: ${SECONDS}"
 
         echo "Update asd-codelabs"
         cd /ws/asd-codelabs && git reset --hard HEAD && git pull
+        echo "List CPU info" && lscpu
         ```
         - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
          automatically.
