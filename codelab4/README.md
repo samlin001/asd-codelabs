@@ -14,30 +14,35 @@ This code lab will show you how to create a custom image for ASD from scratch.
   - What are the [Machine types](https://cloud.google.com/compute/docs/machine-types)?
     - How do I [Create a VM instance with a custom machine type](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#create)?
   - Recommend using at least 520 GB for boot disk size, for [better performance](https://cloud.google.com/compute/docs/disks/performance#performance_by_disk_size).
-    - If you are using the VM for building Android, it needs at least 400 GB, [250Gb for Android source, 150Gb to build](https://source.android.com/setup/build/requirements#hardware-requirements)
+    - If you are using the VM to build Android, it needs at least 400 GB, [250Gb for Android source, 150Gb to build](https://source.android.com/setup/build/requirements#hardware-requirements)
 - You can either start with an existing custom image or a public Linux image.
+  - To set a generic name, e.g. **avd**, follow 1-3 setps at [Changing the default username](https://cloud.google.com/compute/docs/ssh-in-browser#changing_the_default_username).
+  Which will affect for the next VM you create.
 
 #### Base on an existing custom image
 If you just want to add new software or change some configuration, this is a good option for you.
 ```
-gcloud compute instances create <YOUR_VM_NAME> \
-    --enable-nested-virtualization \
-    --machine-type n1-highcpu-32 \
-    --min-cpu-platform="Intel Haswell"
-    --image-project=<PROJECT_NAME_OF_THE_IMAGE> \
-    --image=<IMAGE_NAME> \
+gcloud compute instances create gas-oem-avd \
+  --enable-nested-virtualization \
+  --machine-type n1-highcpu-16 \
+  --min-cpu-platform="Intel Haswell" \
+  --image-project=asd-codelab1 \
+  --image=asd-android11-qpr2 \
+  --zone=us-west2-a
 ```
+- Reference: [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)
 
 #### Base on a Linux public image
 To build from scratch, follow the instruction.
 ```
 gcloud compute instances create <YOUR_VM_NAME> \
-    --enable-nested-virtualization \
-    --machine-type n1-highcpu-32 \
-    --min-cpu-platform="Intel Haswell"
-    --image-family=ubuntu-1804-lts
-    --image-project=ubuntu-os-cloud
-    --create-disk size=520,type=pd-standard
+  --enable-nested-virtualization \
+  --machine-type n1-highcpu-16 \
+  --min-cpu-platform="Intel Haswell" \
+  --image-family=ubuntu-1804-lts \
+  --image-project=ubuntu-os-cloud \
+  --create-disk size=520,type=pd-standard \
+  --zone=us-west2-a
 ```
 
 ### 2. Setup Chrome Remote Desktop(CRD) to acess GUI
@@ -45,21 +50,27 @@ Use Cinnamon for better result
 - [Installing Chrome Remote Desktop on the VM instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_chrome_remote_desktop_on_the_vm_instance)
 - [Installing Cinnamon desktop environment](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#installing_an_x_windows_system_desktop_environment)
 - [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
+- [Disable screensavers, lock screens, and passwords](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#cinnamon_1)
+to avoid locking out & requiring a password, which is never set.
 - (Optional) Changing terminal scheme
   - Edit > Prefrences > Colors > Built-in schemes: Green on black
+
 ### Install softwares
 - [Setup environment](https://source.android.com/setup/build/initializing)
 ```
    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+
    ```
 - Python 2.7
   - Note: Stick with 2.7 for now, using python 3 can cause problems when using repo
   ```
   sudo apt-get install python
+
   ```
 - Libncurses
   ```
   sudo apt-get install libncurses5
+
   ```
 - [repo](https://source.android.com/setup/develop#installing-repo)
   ```
@@ -69,30 +80,47 @@ Use Cinnamon for better result
   PATH=/ws/bin:$PATH
   curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
   chmod a+x ~/bin/repo
+
   ```
 - Java
   ```
   sudo apt update
   sudo apt install default-jre
+
   ```
 - qemu-system-x86 (Only for Ubuntu 18.04)
   ```
   sudo apt update
   sudo apt install qemu-system-x86
+
   ```
 - qemu-kvm (Only for Ubuntu 18.04)
   ```
   sudo apt install qemu-kvm
   sudo adduser $USER kvm
+
   ```
-- Visual Studio Code (Todo: add to script)
-  - VS allows user to edit documents without using vim
-  - [Install Visual Studio on Linux](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
-  - Todo: Move to WS and chown.
+
 - Android studio (Todo: add to script)
   - Follow the instructions to [install Android studio on Linux](https://developer.android.com/studio/install#linux)
   - After installing, open up Android Studio and create a blank project, this will speed up the setup for others.
   - Move Android studio into /ws folder
+
+#### To add
+- Visual Studio Code
+  - VS Code allows users to edit documents easier without learning vim.
+  - Read [Install Visual Studio on Linux](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions).
+  ```
+  echo "Download .deb"
+  xdg-open https://code.visualstudio.com/
+
+  echo "Install the .deb file"
+  sudo apt install ~/Downloads/code_1.57.1-1623937013_amd64.deb
+  ```
+- Google Cloud SDK
+  - Download google-cloud-sdk-345.0.0-linux-x86_64.tar.gz or newer from [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install)
+  - Unzip it to /ws/google-cloud-sdk
+
 
 ### 3. Pre-build Android
 Here we will downlaod [android11-qpr2-release](https://android.googlesource.com/platform/manifest/+/refs/heads/android11-qpr2-release). If you wish to download a specific branch, change the tag after ```-b```

@@ -101,37 +101,42 @@ order. After the setup successfully, you can use CRD for most of work.
     - One-time setup of a new VM
         - Even the custom image includes all software, there are still a few
          steps required to make a new VM ready.
-        
+
         - Make yourself as the new owner of /ws/* & get the latest asd-codelabs.
          This will take about 5 min. to make you the owner of many files.
         ```
-        echo "Make ${USER} as the owner for /ws"
-        SECONDS=0 && sudo chown -R ${USER}:${USER} /ws && echo "seconds: ${SECONDS}"
+        echo "Make ${USER} as the owner for /ws, which will take ~ 5 min."
+        SECONDS=0
+        fList=$(find /ws -maxdepth 2)
+        for f in ${fList}; do
+          sudo chown -R ${USER}:${USER} $f &
+        done;
+        wait && echo ${SECONDS}
 
         echo "Update asd-codelabs"
         cd /ws/asd-codelabs && git reset --hard HEAD && git pull
-        
+
         ```
-        
+
         - Use [asd.sh](../asd.sh) setupVm function to do the rest of setup steps
          automatically.
         ```
           echo ".bashrc is the setup script for each new shell section."
           tail ~/.bashrc
-          
+
           echo "Avoid Windows Newline issues." && sed -i -e 's/\r$//' /ws/asd-codelabs/asd.sh
           /ws/asd-codelabs/asd.sh setupVm
-          
+
           echo "You should see new lines added & the last line is: export PATH=..."
           tail ~/.bashrc
-          
+
         ```
-        
+
         - Stop and then Start the VM in [VM instances](https://console.cloud.google.com/compute/instances).
 
 <img src="res/SSH.png" width="800">
 
-2. Chrome Remote Desktop
+1. Chrome Remote Desktop
     - Chrome Remote Desktop provides GUI, which is easier to use. However, it
      requires more bandwidth than SSH & additional setup.
     - Set it up by [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service)
@@ -145,7 +150,7 @@ order. After the setup successfully, you can use CRD for most of work.
     ```
     echo "List development command alias & you should see studio, etc." && alias
     echo "List functions in asd.sh & you should see asd.sh avdInfo, etc." && asd.sh
-    
+
     ```
 
 2. Check the VM CPU, memory & disk info
@@ -153,15 +158,15 @@ order. After the setup successfully, you can use CRD for most of work.
     echo "List CPU info" && lscpu
     echo "Check memory info" && cat /proc/meminfo
     echo "Check disk filesystem space" && df
-    
+
     ```
-    
+
 3. Find prebuilt Android tree in **/ws/android** in **Terminal**
     ```
     ls -l /ws/android
     echo "Open it in File Manager"
     xdg-open /ws/android
-    
+
     ```
 
 4. asd-codelabs project is cloned in **/ws/asd-codelabs** in **Terminal**
@@ -169,7 +174,7 @@ order. After the setup successfully, you can use CRD for most of work.
     ls -l /ws/asd-codelabs
     echo "Open it in File Manager"
     xdg-open /ws/asd-codelabs
-    
+
     ```
 
 5. Run emulator with Android studio
@@ -177,11 +182,11 @@ order. After the setup successfully, you can use CRD for most of work.
     - Launch Android Studio & [set it up](https://developer.android.com/studio/install#linux)
       ```
       /ws/android-studio/bin/studio.sh
-      
+
       ```
     - Start [AVD Manager](https://developer.android.com/studio/run/managing-avds)
      from **Welcome to Android Studio** dialog box -> Configure -> AVD Manager.
-    - Create a Pixel AVD as needed by Create Virtual Device -> Pixel 2 -> Next -> x86 Images -> R -> Next -> Finish 
+    - Create a Pixel AVD as needed by Create Virtual Device -> Pixel 2 -> Next -> x86 Images -> R -> Next -> Finish
     - Double-click the Pixel AVD to run it.
 
     <img src="res/startAVDManager.png" width="400">
