@@ -1,12 +1,14 @@
 # Customize your own development environment
-This code lab will show you how to create a custom image for ASD from scratch.
+This code lab guides you to create a custom image to set up ASD development
+environment.
 
 ## Steps
-1. Create a VM
-2. Chrome remote desktop
-3. Setting up a build environment and build
-4. Creating an image from vm
-5. Sharing images to the public
+1. Create a VM to config the development environment
+2. Setup Chrome Remote Desktop(CRD) to acess GUI
+3. Install softwares
+4. Pre-build Android
+5. Clean up
+6. Create and publish an image
 
 ### 1. Create a VM to config the development environment
 - Understand [the public and custom images](https://cloud.google.com/compute/docs/images).
@@ -55,7 +57,7 @@ to avoid locking out & requiring a password, which is never set.
 - (Optional) Changing terminal scheme
   - Edit > Prefrences > Colors > Built-in schemes: Green on black
 
-### Install softwares
+### 3. Install software
 - [Setup environment](https://source.android.com/setup/build/initializing)
 ```
    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
@@ -122,7 +124,7 @@ to avoid locking out & requiring a password, which is never set.
   - Unzip it to /ws/google-cloud-sdk
 
 
-### 3. Pre-build Android
+### 4. Pre-build Android
 Here we will downlaod [android11-qpr2-release](https://android.googlesource.com/platform/manifest/+/refs/heads/android11-qpr2-release). If you wish to download a specific branch, change the tag after ```-b```
 
    The list of tags can be found on [Source code tags and builds](https://source.android.com/setup/start/build-numbers#source-code-tags-and-builds), as well as [Branches](https://android.googlesource.com/platform/manifest/+refs)
@@ -153,23 +155,22 @@ Here we will downlaod [android11-qpr2-release](https://android.googlesource.com/
    m -j 64
    ```
 
-### Clean up
-- Remove yourself from KVM group
+### 5. Clean up
   ```
+  echo "Remove the user from KVM group"
   sudo deluser $USER kvm
+  sudo apt clean
+  sudo rm -rf /tmp/* ~/.bash_history
+  rm -rf ~/.local/share/Trash/*
+
+  sudo ls /home
+  echo "Del additional dirs if needed: sudo rm -rf /home/adir"
+
   ```
-- Cleanup the downloaded package and temporary files
-  ```
-  apt clean
-  rm -rf /tmp/* ~/.bash_history
-  ```
-- Change owner and permission of /ws
-  ```
-  sudo chown -R ${USER}:${USER} /ws
-  ```
+
 - [Deauthorize Chrome Remote Desktop for the instance](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#deauthorize_chrome_remote_desktop_for_the_instance)
 
-### 4. Create and publish an image
+### 6. Create and publish an image
 1. Read about [Compute image User role](https://cloud.google.com/compute/docs/access/iam#compute.imageUser)
     - When making the image public, we are granting all users permission to list and read images.
 2. Exit out of cloud shell and stop the instance

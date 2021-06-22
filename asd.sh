@@ -32,9 +32,9 @@ setupVm() {
   echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
   echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
   echo 'export PATH=$PATH:/ws/bin:/ws/asd-codelabs' >> ~/.bashrc
-  echo "export PATH=$PATH:/ws/google-cloud-sdk/bin:/ws/Android/Sdk/emulator" >> ~/.bashrc
+  echo 'export PATH=$PATH:/ws/google-cloud-sdk/bin:/ws/Android/Sdk/emulator' >> ~/.bashrc
 
-  echo "setupVm took ${SECONDS} s."
+  echo "setupVm took ${SECONDS}"
 }
 
 setEnv() {
