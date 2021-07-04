@@ -41,8 +41,8 @@ gcloud compute instances create <YOUR_VM_NAME> \
   --enable-nested-virtualization \
   --machine-type n1-highcpu-16 \
   --min-cpu-platform="Intel Haswell" \
-  --image-family=ubuntu-1804-lts \
-  --image-project=ubuntu-os-cloud \
+  --image-family=debian-10 \
+  --image-project=debian-cloud \
   --create-disk size=520,type=pd-standard \
   --zone=us-west2-a
 ```
