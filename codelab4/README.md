@@ -56,13 +56,9 @@ Use Cinnamon for better result
 to avoid locking out & requiring a password, which is never set.
 - (Optional) Changing terminal scheme
   - Edit > Prefrences > Colors > Built-in schemes: Green on black
+- [Disable screensaver, screenlock, and adding password](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#disable_screensavers_lock_screens_and_passwords)
 
-### 3. Install software
-- [Setup environment](https://source.android.com/setup/build/initializing)
-```
-   sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
-
-   ```
+### 3. Install softwares
 - Python 2.7
   - Note: Stick with 2.7 for now, using python 3 can cause problems when using repo
   ```
@@ -90,19 +86,6 @@ to avoid locking out & requiring a password, which is never set.
   sudo apt install default-jre
 
   ```
-- qemu-system-x86 (Only for Ubuntu 18.04)
-  ```
-  sudo apt update
-  sudo apt install qemu-system-x86
-
-  ```
-- qemu-kvm (Only for Ubuntu 18.04)
-  ```
-  sudo apt install qemu-kvm
-  sudo adduser $USER kvm
-
-  ```
-
 - Android studio (Todo: add to script)
   - Follow the instructions to [install Android studio on Linux](https://developer.android.com/studio/install#linux)
   - After installing, open up Android Studio and create a blank project, this will speed up the setup for others.
