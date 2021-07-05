@@ -57,6 +57,7 @@ to avoid locking out & requiring a password, which is never set.
 - (Optional) Changing terminal scheme
   - Edit > Prefrences > Colors > Built-in schemes: Green on black
 - [Disable screensaver, screenlock, and adding password](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#disable_screensavers_lock_screens_and_passwords)
+- ToDo: [Automate the installing process](https://cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#automating_the_installation_process)
 
 ### 3. Install softwares
 - Python 2.7
