@@ -16,7 +16,7 @@ cts-tradefed run cts -m CtsCurrentApiSignatureTestCases -t android.signature.cts
 CtsDeviceInfo.apk is not a test
 1. Make apk debugable
 
-- Add the following snippet bellow          ```serializer.startTag(ns, APPLICATION);``` inside
+- In ManifestGenerator.java, add the following snippet bellow ```serializer.startTag(ns, APPLICATION);```
 
   ```
   serializer.attribute(ns, "android:debuggable", "true");
