@@ -1,4 +1,4 @@
-# Customize your own development environment
+# Build your own development environment at scale
 This code lab guides you to create a custom image to set up ASD development
 environment.
 
