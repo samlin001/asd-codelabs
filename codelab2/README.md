@@ -113,11 +113,11 @@ to ~/Downloads, e.g. [jetsnack-debug.apk](https://github.com/android/compose-sam
 - What are [Android Images](https://source.android.com/devices/bootloader/images)?
 - Even a bit outdated, [DIGI](https://www.digi.com/resources/documentation/digidocs/embedded/android/oreo/cc6/android_r_system-architecture) provides nice illustrations to connect these concepts.
 
-<img src="res/partitions-android-r.png" alt="Changes in Android 11" width="600">
+<img src="res/partitions-android-r.png" alt="Changes in Android 11" width="400">
 
 Source: [Android 11 partition structure](https://source.android.com/devices/bootloader/partitions#changes-in-android-r)
 
-<img src="res/dwg_android_build_artifacts.png" width="600">
-<img src="res/dwg_android_eMMC_layout.png" width="200">
+<img src="res/dwg_android_build_artifacts.png" width="400">
+<img src="res/dwg_android_eMMC_layout.png" width="120">
 
 Source: [DIGI.com: System architecture](https://www.digi.com/resources/documentation/digidocs/embedded/android/oreo/cc6/android_r_system-architecture.html#build-artifacts)

@@ -1,25 +1,54 @@
 # Build and Debug Android CTS
-You will learn how to build & debug CTS in this code lab. Android Open-Source Project (AOSP) uses Compatibility Test Suite(CTS) to validate if a device can run Android apps properly. Because anyone can enhance & extend Android sources to build better devices for their target users, CTS is the tool to ensure the changes do not add technical debt to the Android app ecosystem.
+In this code lab, you will learn how to build & debug CTS in this code lab.
+Why should you care? tl;dr Android Open-Source Project (AOSP) empowers anyone
+to build their flavor of Android devices without asking for permission. But,
+a big problem is anyone can mistakenly implement a device, which may break
+3rd Android party apps because one can change anything in Android. Therefore,
+Android Compatibility Test Suite, [CTS](https://source.android.com/compatibility/overview)
+is used to help device developers to validate if a device can run Android apps
+properly.
 
-## 1. Build & Run
-- Build CTS under the Android source directory, e.g.:
+## 1. Build & Run CTS
+### 1a. Build
+To CTS under the Android source directory, e.g.:
 ```
 cd /ws/android && . build/envsetup.sh && lunch sdk_phone_x86_64-userdebug && make cts -j16
 ```
-- Run a CTS module: SignatureTest#testSignature
+### 1b. Run
+To run a CTS test module: SignatureTest#testSignature
 ```
 cts-tradefed run cts -m CtsCurrentApiSignatureTestCases -t android.signature.cts.api.SignatureTest#testSignature
 ```
+### 1c. Learn more
+To learn more at [CTS Development](https://source.android.com/compatibility/cts/development)
+& [Running CTS tests](https://source.android.com/compatibility/cts/run)
 
 ## 2. Debug a CTS test case with Android Studio
-Debugging Android can be difficult & time-consuming. For example, a typically debug cycle is hypothesizing, adding logs, building, testing & repeat. Android Studio provides a better GUI & tools to make it easier for app developers. Here is an example using Android Studio to debug a CTS test case.
+There are more than a million test cases in CTS. And debugging them can be
+very difficult & time-consuming even for seasonal engineers. Android Studio has
+a user-friendly GUI to make it easier for app developers. As most CTS test modules
+are just a special kind of "app/APK", you can use Android Studio to increase
+your productivity on debugging or even rationalizing the code in concern.
 
-1. Set breakpoints
-2. Run command
-3. Step through and debug
+### 2a. Typical debug workflow
+A typically debug cycle is hypothesizing, adding logs, building, testing &
+repeat. When you suspect or need to know more about a piece of code, you can
+follow these steps to inspect the execution step by step. For example for
+testSignature:
 
+Todo
+#### 2a1. Create a project
+#### 2a2. Set breakpoints
+#### 2a3. Run the test for debugging
+#### 2a4. Step through & inspect
 
-## 3. Detailed case study: CtsDeviceInfo.apk
+### 2b. Another Case Study
+This is a real case that an device maker could not figuer out why CTS failed to
+collect device information on their AVD. Even though the physical device does
+not have the problem. These are the steps to pin pointed the problem.
+
+physical device.
+CtsDeviceInfo.apk
 CtsDeviceInfo.apk is not a test
 1. Make apk debugable
 
@@ -46,7 +75,7 @@ cts-tradefed
  ```
 5. Start app and wait for debugger
 
-## 4. Extra Credits
+## 3. Extra Credits
 ```
 adb shell am instrument -e debug true  -w -r --no-isolated-storage   -e newRunListenerMode true -e timeout_msec 300000 com.android.compatibility.common.deviceinfo/androidx.test.runner.AndroidJUnitRunner
 ```
