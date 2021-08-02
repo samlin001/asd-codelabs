@@ -94,23 +94,24 @@ debuggable, Android Studio will show the error: **This device cannot
 be debugged using the native debugger**.
 
 1. To build a debugable CtsDeviceInfo.apk, make ManifestGenerator.java tool to generate the debuggable apk manifist file. Edit it by `code /ws/android/test/suite_harness/common/host-side/manifest-generator/src/com/android/compatibility/common/generator/ManifestGenerator.java` as:
+
 ```
     serializer.startTag(ns, APPLICATION);
 +    serializer.attribute(ns, "android:debuggable", "true");
     for (String library : libraries) {
 ```
 
-- Learn more at [Android Manifest Application Element](https://developer.android.com/guide/topics/manifest/application-element).
-- Note CtsDeviceInfo.apk uses this tool to generate AndroidManifest.xml at the build time.
+    - Learn more at [Android Manifest Application Element](https://developer.android.com/guide/topics/manifest/application-element).
+    - Note CtsDeviceInfo.apk uses this tool to generate AndroidManifest.xml at the build time.
 
-1. Build CTS as usual
+2. Build CTS as usual
 
-2. Open the APK in Android Studio
+3. Open the APK in Android Studio
 - Android Studio -> **Profile or Debug APK** -> /ws/android/out/host/linux-x86/cts/android-cts/testcases/CtsDeviceInfo.apk
 
-1. Start an AVD as a device under test
+4. Start an AVD as a device under test
 
-2. Install the APK manually
+5. Install the APK manually
 ```
 adb install -g /ws/android/out/host/linux-x86/cts/android-cts/testcases/CtsDeviceInfo.apk
 ```
@@ -126,7 +127,7 @@ com.android.compatibility.common.deviceinfo
 - **Attach Kotlin/Java Sources...** ->
 /ws/android/cts/common/device-side/device-info/src/com/android/compatibility/common/deviceinfo/MediaDeviceInfo.java
 - Click the line 44 to set a break point
-- Learn more in [Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger#attach_java)
+- Learn more from [Attach Kotlin/Java sources](https://developer.android.com/studio/debug/apk-debugger#attach_java)
 
 8. Attach to the process
 - Android Studio -> **Run** -> **Attach Debugger to Android Process...** ->
