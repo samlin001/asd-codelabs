@@ -1,11 +1,11 @@
 # Build and Debug Android CTS
 
-In this code lab, you will learn how to build & debug CTS. But, why do you care?
+In this code lab, you will learn how to build & debug CTS. But, why do we care?
 
 tl;dr Android Open-Source Project (AOSP) empowers anyone to build their flavors
-of Android devices without asking for permission. However, this creates problems
-as anyone may make mistakes in their device implementations. Those may break
-3rd Android party apps, and only be discovered much lather by users running apps.
+of Android devices without asking for permission. However, this can be problematic.
+Device developers might make mistakes in the device implementations. Consequently,
+3rd Android party apps problem may only be discovered lather when users using them.
 Therefore, Android Compatibility Test Suite, [CTS](https://source.android.com/compatibility/overview)
 is used to help device developers to validate if a device can run Android apps
 properly.
@@ -138,7 +138,7 @@ com.android.compatibility.common.deviceinfo -> **OK**
 9.   Run & insepct
 - Try & learn more in [Work with breakpoints](https://developer.android.com/studio/debug#breakPoints).
 
-<img src="res/debug.png" width="400">
+<img src="res/debug.png" width="800">
 
 ## 3. Extra Credits
 todo
