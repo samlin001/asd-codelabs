@@ -73,6 +73,7 @@ m -j16
 echo "Run it"
 emulator &
 ```
+
 <img src="res/avd.png" width="400">
 
 ## Poke around
