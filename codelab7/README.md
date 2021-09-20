@@ -16,6 +16,9 @@ https://developer.android.com/codelabs/jetpack-compose-basics#0
 - The first activity that the app runs on start up
 - Most of the the code lab would be editing this part
 ## Making the app
+What would a startup need to build a app?
+What do functions would users need/want? 
+How to connect this app with other 
 ### Declare UI
 ### States in compose
 - Saves stuff in app 
