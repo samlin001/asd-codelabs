@@ -1,26 +1,26 @@
 # Android System Development On The Cloud
-tl;dr How we may level the playing field for better divested CS talent pipelines.
+tl;dr How may we level the playing field to expand CS talent pipelines with better diversity & equity?
 
 ![Compute A Better Future](res/computeAFuture.png)
 
 - [ASD code labs](codelabs.md) are developed as a workshop for
-[Google's Code Next](https://codenext.withgoogle.com/). Which works with
+[Code Next with Google](https://codenext.withgoogle.com/). Which works with
 high schoolers to cultivate the next generation of Black and Latinx tech leaders.
-- It'll continuously develop in open. So that any passionate in bootstrapping CS talent
-pipeline in their community can use them.
+- It'll continuously develop in open. So that anyone passionate about bootstrapping CS talent
+pipeline in their community can leverage them.
 - Any contribution is welcome. Let's make a dent in the consumer computing universe by getting more started.
 
 ## Why
-- How may we expand the future diversified talent pipeline for Tech.?
-- How can we level the playing field by removing the entry barriers? What if students do not need a powerful computer?
-- How to work from anywhere easier?
+- Why should we make Tech more diverse by expanding the talent pipeline?
+- Why should we remove barriers for less privileged students to learn? How much more we can reach if students do not need powerful computers?
+- Why may we make system development easier for anyone working from anywhere?
 
 ### Why Now
 Because
 - [CS-literacy is a skill in high demand](https://samlin001.medium.com/stay-open-push-forward-a64ef27c91f0).
-But the talent gap is widering.
+But the talent gap is expanding fast.
 - [The New Age Of Software-Defined](https://samlin001.medium.com/the-new-age-of-software-defined-2ae97c6d3281)
-is just getting started.
+is just getting started. More opportunities & magics when hardware problems become software problems.
 
 ## How
 - Coaches from Tech. to share their CS journeys to share what's like to work in
@@ -38,17 +38,17 @@ for a taste of [the next-generation development workflows](https://medium.com/ge
 ## Agenda
 A typical workshop can be planned as:
 - 30min. Meet Coaches
-- 30min. CS 101
+- 30min. CS 101: [Android System Development on the Cloud - Community Edition](https://docs.google.com/presentation/d/1VY97M7SKG1KmUrRPY_Prvegw_LwZq1hd9Z8p9vTzxK8)
 - 40min. Code Lab 1
 - 40min. Code Lab 2
 - 40min. Code Lab 3
 
-You can also plan a minimal workshop for 2 hours. Becuase students should be
+You can also plan a minimal workshop for 2 hours. Because students should be
 able to complete the rest code labs on their own after that.
 
 ## What do students need to join the workshop?
 - Ready to join [Google Meet meeting](https://apps.google.com/meet/).
 - Ready to [Get started for free](https://cloud.google.com/pricing) for Google
 Cloud Platform.
-- Curious to learn & interst to explore next-generation computing system
-development model.
+- Curious to learn & interested to explore next-generation computing system
+development on the cloud.
