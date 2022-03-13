@@ -39,9 +39,10 @@ for a taste of [the next-generation development workflows](https://medium.com/ge
 A typical workshop can be planned as:
 - 30min. Meet Coaches
 - 30min. CS 101: [Android System Development on the Cloud - Community Edition](https://docs.google.com/presentation/d/1VY97M7SKG1KmUrRPY_Prvegw_LwZq1hd9Z8p9vTzxK8)
-- 40min. Code Lab 1
-- 40min. Code Lab 2
-- 40min. Code Lab 3
+- 40min. Code Lab 1: [Set Up Android System Development Environment on Google Cloud](https://github.com/samlin001/asd-codelabs/tree/main/codelab1)
+- 40min. Code Lab 2: [Build An Android Virtual Device On Google Cloud](https://github.com/samlin001/asd-codelabs/tree/main/codelab2)
+- 40min. Code Lab 3:[Create Your Own AVD On The Cloud](https://github.com/samlin001/asd-codelabs/tree/main/codelab3)
+- Do more Code Labs if there is time, or set up students to keep learning on their own. 
 
 You can also plan a minimal workshop for 2 hours. Because students should be
 able to complete the rest code labs on their own after that.
