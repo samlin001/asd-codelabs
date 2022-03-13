@@ -1,13 +1,13 @@
 # Android System Development On The Cloud
-tl;dr How may we level the playing field to expand CS talent pipelines with better diversity & equity?
+## tl;dr How may we level the playing field to expand CS talent pipelines with better diversity & equity?
 
 ![Compute A Better Future](res/computeAFuture.png)
 
 - [ASD code labs](codelabs.md) are developed as a workshop for
 [Code Next with Google](https://codenext.withgoogle.com/). Which works with
 high schoolers to cultivate the next generation of Black and Latinx tech leaders.
-- It'll continuously develop in open. So that anyone passionate about bootstrapping CS talent
-pipeline in their community can leverage them.
+- We intend to develop in open continuously. So, anyone passionate about bootstrapping CS talent
+pipeline in their community can leverage this.
 - Any contribution is welcome. Let's make a dent in the consumer computing universe by getting more started.
 
 ## Why
