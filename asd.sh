@@ -28,6 +28,7 @@ setupVm() {
 
   echo "link ${HOME}/Android to /ws/Android to use preloaded SDK"
   ln -s /ws/Android ${HOME}/Android
+  ln -s /ws/.android ${HOME}/.android
   echo 'alias lunchSdkPhone=". build/envsetup.sh && lunch sdk_phone_x86_64-userdebug"' >> ~/.bashrc
   echo 'alias lunchAPhone=". build/envsetup.sh && lunch aphone-userdebug"' >> ~/.bashrc
   echo 'alias studio="/ws/android-studio/bin/studio.sh &"' >> ~/.bashrc
