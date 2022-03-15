@@ -28,9 +28,9 @@ The following command will create a Debian 10 VM with 100G of storage
 	```
 	gcloud compute instances create asd-vm \
 		--enable-nested-virtualization \
-		--machine-type=n1-highcpu-16 \
+		--machine-type=n1-standard-8 \
 		--min-cpu-platform="Intel Haswell" \
-		--create-disk=auto-delete=yes,boot=yes,device-name=asd-vm,image=projects/debian-cloud/global/images/debian-10-buster-v20220118,mode=rw,size=100,type=projects/asdimage/zones/us-west1-b/diskTypes/pd-standard \
+		--create-disk=auto-delete=yes,boot=yes,device-name=asd-vm,image=projects/debian-cloud/global/images/debian-10-buster-v20220118,mode=rw,size=30,type=projects/asdimage/zones/us-west1-b/diskTypes/pd-standard \
 		--zone=us-west2-a
 	```
 
@@ -66,7 +66,18 @@ to avoid locking out & requiring a password, which is never set.
   - Follow the instructions to [install Android studio on Linux](https://developer.android.com/studio/install#linux)
   - After installing, open up Android Studio and create a blank project, this will speed up the setup for others.
   - Move Android studio into /ws folder
-
+- Install Google Chrome Visual Studio Code & GIT
+  - ```sudo apt install git ```
+  - ```cd/ws && git clone https://github.com/samlin001/asd-codelabs.git```
+- Setup Android studio 
+  - Setup default ADV
+- Upgrade installed packages 
+  - ```sudo apt upgrade```
+- Make AVD data folder shareable to all users
+  -  Move AVD to public folder
+     - ```mv ${HOME}/.android /ws/.android```
+  - Link AVD data folder
+    - ```ln -s /ws/.android ${HOME}/.android```
 
 ### 5. Prepare VM for image
   ```
