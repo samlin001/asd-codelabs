@@ -1,7 +1,7 @@
 # Android System Development On Cloud Code Labs
-This curates guides, code labs &amp; resources to learn Android System
-Development on the Cloud. So that, anyone can learn all aspects of A system
-development by building an OS, an app framework & devices on a browser from
+This curates guides, code labs and resources to learn Android System
+Development on the Cloud. So that, anyone can learn any aspect of A system
+development by building an OS, an app framework & a device on a browser from
 anywhere.
 
 ![Android Development on the cloud](res/ASDotC.png)
@@ -14,8 +14,9 @@ anywhere.
    prototyping, fast iteration, easier automation & work from anywhere. A good
    way to leverage [the power of SoftWare-Defined](https://samlin001.medium.com/the-new-age-of-software-defined-2ae97c6d3281).
 3. Why the Cloud?
-  - Because it lowers the entry batter as only a browser needed to get started
-   & easy to scale multiple development setups or a big development team quicker.
+  - Because it lowers cost of an expensive PC and the set up overhead. Any one
+   only need a browser to get started. It's also quick to set up different dev
+   environments for tasks working in parallel, or to ramp up a big team.
 
 ## Code Labs
 1. [Set Up A System Development Environment on The Cloud](codelab1/README.md).
