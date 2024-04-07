@@ -1,6 +1,6 @@
-# Set Up a System Development Environment on the Cloud
+# Set Up Android System Development Environment on the Cloud
 In this code lab, you will learn how to create a virtual machine on
-Google Cloud Platform(GCP) and access it by Chrome Remote Desktop(CRD) for
+Google Cloud Platform (GCP) and access it by Chrome Remote Desktop (CRD) for
 Android system development.
 
 ## Nested VMs on the Cloud

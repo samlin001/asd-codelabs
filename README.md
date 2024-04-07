@@ -9,7 +9,7 @@ and Latinx high schoolers to be the next generation of tech leaders.
 - We intend to develop in open continuously. So, it's easier for anyone to
 bootstrap the CS talent pipeline in their communities.
 - Any contribution is welcome. Let's make a dent in the consumer computing
-universe by getting more people to get started.
+universe by helping more developers to get started.
 
 ## Why
 A few questions may help to find your own why.
