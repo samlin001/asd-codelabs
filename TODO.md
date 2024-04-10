@@ -1,5 +1,6 @@
 
 - https://cloud.google.com/workstations/docs/write-code-gemini
+- https://cloud.google.com/workstations/docs/architecture
 
 
 App CI
