@@ -40,6 +40,11 @@ to get out with hands-on achievements.
 - Build an Android Virtual Devices (AVD) on the cloud.
 - Create & customize their own AVD on the cloud.
 
+For example: [A Taiwanese high schooler shared his experience of doing ASD on the cloud via a mobile phone in 2021 bootcamp.](https://samlin001.medium.com/democratizing-cs-super-power-181b3d855c6b#ad8d)
+
+![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*AGlY0-4pTWqGbl9tOLmbjg.png)
+
+
 ## Agenda
 A typical workshop can be planned as:
 - 30min. Meet Coaches
