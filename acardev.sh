@@ -2,13 +2,14 @@
 readme() {
 echo '''
 # 1. append these to ~/.bashrc
-if [[ -f ~/asd-codelabs/acardev/acardev.sh ]]; then
-    . ~/asd-codelabs/acardev/acardev.sh
+# AAOS Car Dev Flow Setup
+if [ -f ~/ws/asd-codelabs/acardev.sh ]; then
+    . ~/ws/asd-codelabs/acardev.sh
 fi
 
-# 2. just run ~/asd-codelabs/acardev/acardev.sh [function]
+# 2. just run ~/ws/asd-codelabs/acardev.s [function]
 e.g.
-  ~/asd-codelabs/acardev/acardev.sh cdScar
+  ./acardev.sh setupKvm
 '''
 }
 
@@ -53,7 +54,7 @@ cdScar() {
 }
 
 cdCar() {
-  if [[ ! -d ${HOME}/ws/$1 ]]; then
+  if [ ! -d ${HOME}/ws/$1 ]; then
     mkdir -p ${HOME}/ws/$1
     echo 'remember to get the code, e.g. $ checkoutScar and $ sync'
   fi
@@ -111,7 +112,7 @@ installChrome() {
 
 echo '$ installAsfp & $ setupAsfp if needed'
 installAsfp() {
-  if [[ -f ${HOME}/Downloads/asfp.deb ]]; then
+  if [ -f ${HOME}/Downloads/asfp.deb ]; then
     sudo apt install ${HOME}/Downloads/asfp.deb
   else
     echo 'Download ${HOME}/Downloads/asfp.deb first'
@@ -147,7 +148,7 @@ checkDevEnv() {
 
 checkDevEnv
 
-if [[ -z $1 ]]; then
+if [ -z $1 ]; then
   readme
 else
   echo "Running: $@"
