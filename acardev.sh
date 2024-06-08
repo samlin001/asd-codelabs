@@ -91,9 +91,9 @@ echo ''
 
 echo '$ runCf or $runEmu to start a Cuttlefish or Android Emulator car AVD' 
 runCf() {
-  launch_cvd --start_webrtc=true
   echo 'To view AVDs:'
   echo 'open https://localhost:8443'
+  launch_cvd --start_webrtc=true
 }
 
 runEmu() {
@@ -142,15 +142,23 @@ installAsfp() {
 }
 
 setupAsfp() {
-echo 'before:'
-cat /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
-echo
-echo '''# custom Android Studio VM options, see https://developer.android.com/studio/intro/studio-config.html
--Xmx50000m
--Didea.max.intellisense.filesize=10000
-''' > /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
-echo 'after:'
-cat /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
+  echo 'before:'
+  cat /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
+  echo
+  echo '''# custom Android Studio VM options, see https://developer.android.com/studio/intro/studio-config.html
+  -Xmx50000m
+  -Didea.max.intellisense.filesize=10000
+  ''' > /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
+  echo 'after:'
+  cat /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
+}
+
+echo '$ checkDiskUsage for car repos'
+checkDiskUsage() {
+  du -sh ~/ws/scar &
+  du -sh ~/ws/tcar &
+  du -sh ~/ws/ucar &
+  wait
 }
 
 checkDevEnv() {
