@@ -53,7 +53,7 @@ cdScar() {
 }
 
 cdCar() {
-  if [ ! -d ${HOME}/ws/$1 ]; then
+  if [[ ! -d ${HOME}/ws/$1 ]]; then
     mkdir -p ${HOME}/ws/$1
     echo 'remember to get the code, e.g. $ checkoutScar and $ sync'
   fi
@@ -111,7 +111,7 @@ installChrome() {
 
 echo '$ installAsfp & $ setupAsfp if needed'
 installAsfp() {
-  if [[ test -f ${HOME}/Downloads/asfp.deb ]]; then
+  if [[ -f ${HOME}/Downloads/asfp.deb ]]; then
     sudo apt install ${HOME}/Downloads/asfp.deb
   else
     echo 'Download ${HOME}/Downloads/asfp.deb first'
