@@ -91,7 +91,9 @@ echo ''
 
 echo '$ runCf or $runEmu to start a Cuttlefish or Android Emulator car AVD' 
 runCf() {
-  launch_cvd
+  launch_cvd --start_webrtc=true
+  echo 'To view AVDs:'
+  echo 'open https://localhost:8443'
 }
 
 runEmu() {
