@@ -61,7 +61,7 @@ cdCar() {
   cd ${HOME}/ws/$1
 }
 
-echo '$ lunchCf to set the target to cuttlefish AVD'
+echo '$ lunchCf to set the target to Cuttlefish AVD'
 lunchCf() {
   time . build/envsetup.sh
   time lunch aosp_cf_x86_64_auto-userdebug
@@ -77,6 +77,16 @@ echo '$ mCar to build the target'
 mCar() {
   time m -j60 2>&1 > "build-$(date +"%Y%m%d-%I%M%S").log"
   df -h
+}
+echo ''
+
+echo '$ runCf or $runEmu to start a Cuttlefish or Android Emulator car AVD' 
+runCf() {
+  launch_cvd
+}
+
+runEmu() {
+  emulator -memory 6000 -cores 6 -no-snapshot
 }
 
 echo '$ checkoutScar checkoutTcar checkoutUcar to checkout a car codebase'
@@ -125,7 +135,7 @@ echo 'before:'
 cat /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
 echo
 echo '''# custom Android Studio VM options, see https://developer.android.com/studio/intro/studio-config.html
--Xmx25000m
+-Xmx50000m
 -Didea.max.intellisense.filesize=10000
 ''' > /home/user/.config/Google/AndroidStudioForPlatformCanaryPreview2024.1/studio64.vmoptions
 echo 'after:'
