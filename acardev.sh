@@ -10,6 +10,13 @@ fi
 # 2. just run ~/ws/asd-codelabs/acardev.s [function]
 e.g.
   ./acardev.sh setupKvm
+  ./acardev.sh patchDevEnv
+  ./acardev.sh cdScar
+  ./acardev.sh checkoutScar
+  ./acardev.sh sync
+  ./acardev.sh lunchCf
+  ./acardev.sh mCar
+  ./acardev.sh runCf
 '''
 }
 
@@ -35,8 +42,10 @@ setupKvm() {
   exec sudo su - ${USER}
 }
 
-setup4Dev() {
+patchDevEnv() {
+  echo 'work around the Internet connection issue'
   sed '0,/.*nameserver.*/s/.*nameserver*/nameserver 8.8.8.8\n&/' /etc/resolv.conf | sudo tee /etc/resolv.conf
+  echo 'install rsync in order to build AAOS'
   sudo apt install rsync
 }
 
@@ -151,7 +160,7 @@ checkDevEnv() {
   echo '$ setupKvm, if no kvm in the groups'
   echo
   ping -c 1 www.google.com
-  echo '$ setup4Dev to connect to Internet, etc.'
+  echo '$ patchDevEnv if no Internet connection'
   echo
   echo '$ cdScar to get started'
 }
