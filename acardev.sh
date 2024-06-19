@@ -29,6 +29,26 @@ export BUILDTOOL_DIR=${ASDK_ROOT}/build-tools/${BUILDTOOL_DIR_NAME}
 #add SDK & Tool path
 PATH=$PATH:${ASDK_ROOT}/platform-tools:${ASDK_ROOT}/build-tools:${BUILDTOOL_DIR}:${ASDK_ROOT}/emulator
 
+setupBash() {
+  # Define the string to search for and append
+  str2append='''
+# AAOS Car Dev Flow Setup
+if [ -f ~/ws/asd-codelabs/acardev.sh ]; then
+    . ~/ws/asd-codelabs/acardev.sh
+fi
+
+'''
+
+  # Check if the string already exists in .bashrc
+  if ! grep -qF "${str2append}" ~/.bashrc; then
+    # If not, append the string to .bashrc
+    echo "${str2append}" >> ~/.bashrc
+    echo "~/ws/asd-codelabs/acardev.sh appended to .bashrc"
+  else
+    echo "~/ws/asd-codelabs/acardev.sh is in .bashrc already"
+  fi
+}
+
 setupGit() {
   git config --global user.name yourName
   git config --global user.email yourMailAddress@gmail.com
