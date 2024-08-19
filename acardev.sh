@@ -95,10 +95,16 @@ cdCar() {
   cd ${HOME}/ws/$1
 }
 
-echo '$ lunchCf to set the target to Cuttlefish AVD'
+echo '$ lunchCf to set the target to Cuttlefish car AVD'
 lunchCf() {
   time . build/envsetup.sh
   time lunch aosp_cf_x86_64_auto-userdebug
+}
+
+echo '$ lunchTrunkCf to set the target to Cuttlefish trunk car AVD'
+lunchTrunkCf() {
+  time . build/envsetup.sh
+  time lunch aosp_cf_x86_64_auto-trunk_staging-userdebug
 }
 
 echo '$ lunchEmu to set the target to Android Emulator AVD'
@@ -154,6 +160,11 @@ getChrome() {
 
 installChrome() {
   sudo apt install ~/Downloads/google-chrome*.deb
+}
+
+resetChrome() {
+    echo removing ~/.config/google-chrome to reset Chrome 
+    rm -r ~/.config/google-chrome
 }
 
 echo '$ installAsfp & $ setupAsfp if needed'
