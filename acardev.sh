@@ -16,7 +16,7 @@ e.g.
   ./acardev.sh checkoutScar
   ./acardev.sh sync
   ./acardev.sh lunchCf
-  ./acardev.sh mCar
+  ./acardev.sh buildCar
   ./acardev.sh runCf
 '''
 }
@@ -26,7 +26,7 @@ export ASDK_ROOT=${HOME}/Android/Sdk
 export BUILDTOOL_DIRS=($(ls ${ASDK_ROOT}/build-tools))
 export BUILDTOOL_DIR_NAME=${BUILDTOOL_DIRS}[-1]
 export BUILDTOOL_DIR=${ASDK_ROOT}/build-tools/${BUILDTOOL_DIR_NAME}
-export CPU_THREADS=126
+export CPU_THREADS=8
 
 #add SDK & Tool path
 PATH=$PATH:${ASDK_ROOT}/platform-tools:${ASDK_ROOT}/build-tools:${BUILDTOOL_DIR}:${ASDK_ROOT}/emulator
@@ -121,10 +121,12 @@ lunchEmu() {
   time lunch sdk_car_x86_64-userdebug
 }
 
-echo '$ mCar to build the target'
-mCar() {
-  time m -j ${CPU_THREADS} 2>&1 > "build-$(date +"%Y%m%d-%I%M%S").log"
-  df -h
+echo '$ buildCar to build the target'
+buildCar() {
+  LOG="build-$(date +"%Y%m%d-%I%M%S").log"
+  df -h | tee $LOG
+  time m -j ${CPU_THREADS} 2>&1 | tee -a $LOG
+  df -h | tee -a $LOG
 }
 echo ''
 
@@ -158,9 +160,10 @@ checkoutScar() {
 
 echo '$ sync to download the code'
 sync() {
-  df -h
-  time repo sync -c -j ${CPU_THREADS}
-  df -h
+  LOG="sync-$(date +"%Y%m%d-%I%M%S").log"
+  df -h | tee $LOG
+  time repo sync -c -j ${CPU_THREADS} | tee -a $LOG
+  df -h | tee -a $LOG
 }
 
 echo '$ getChrome & $ installChrome if needed'
@@ -228,19 +231,30 @@ checkDevEnv() {
 }
 
 prebakeWCar() {
+  setupGit
   cdCar wcar
   checkoutWcar
   sync
   lunchTrunkCf
-  mCar
+  buildCar
 }
 
 prebakeVCar() {
+  setupGit
   cdCar vcar
-  checkoutWcar
+  checkoutVcar
   sync
   lunchTrunkCf
-  mCar
+  buildCar
+}
+
+prebakeUCar() {
+  setupGit
+  cdCar ucar
+  checkoutUcar
+  sync
+  lunchCf
+  buildCar
 }
 
 checkDevEnv
