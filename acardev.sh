@@ -75,6 +75,14 @@ patchDevEnv() {
 }
 
 echo '$ cdScar cdTcar or cdUcar to a car repo'
+cdWcar() {
+  cdCar wcar
+}
+
+cdVcar() {
+  cdCar vcar
+}
+
 cdUcar() {
   cdCar ucar
 }
@@ -132,9 +140,14 @@ runEmu() {
 }
 
 echo '$ checkoutScar checkoutTcar checkoutUcar to checkout a car codebase'
+checkoutWcar() {
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-qpr1-release
+}
+checkoutVcar() {
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android14-qpr3-release
+}
 checkoutUcar() {
-  echo 'Need to setup an account with access to the partner repo'
-  time repo init --partial-clone --partial-clone-exclude=platform/frameworks/base --clone-filter=blob:limit=10M -u https://partner-android.googlesource.com/platform/vendor/pdk/generic/fs/manifest -b u-car-fs-release
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android13-qpr1-release
 }
 checkoutTcar() {
   time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android13-qpr1-release
