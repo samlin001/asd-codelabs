@@ -141,13 +141,13 @@ runEmu() {
 
 echo '$ checkoutScar checkoutTcar checkoutUcar to checkout a car codebase'
 checkoutWcar() {
-  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-qpr1-release
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b main
 }
 checkoutVcar() {
-  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android14-qpr3-release
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-qpr1-release
 }
 checkoutUcar() {
-  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android13-qpr1-release
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android14-qpr1-automotiveos-release
 }
 checkoutTcar() {
   time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android13-qpr1-release
@@ -207,6 +207,8 @@ checkDiskUsage() {
   du -sh ~/ws/scar &
   du -sh ~/ws/tcar &
   du -sh ~/ws/ucar &
+  du -sh ~/ws/vcar &
+  du -sh ~/ws/wcar &
   wait
 }
 
@@ -223,6 +225,22 @@ checkDevEnv() {
   echo
   echo '$ cdScar to get started'
   echo
+}
+
+prebakeWCar() {
+  cdCar wcar
+  checkoutWcar
+  sync
+  lunchTrunkCf
+  mCar
+}
+
+prebakeVCar() {
+  cdCar vcar
+  checkoutWcar
+  sync
+  lunchTrunkCf
+  mCar
 }
 
 checkDevEnv
