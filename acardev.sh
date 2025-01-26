@@ -128,6 +128,16 @@ buildCar() {
   time m -j ${CPU_THREADS} 2>&1 | tee -a $LOG
   df -h | tee -a $LOG
 }
+
+buildSdkCar() {
+  LOG="build-$(date +"%Y%m%d-%I%M%S").log"
+  df -h | tee $LOG
+  time . build/envsetup.sh | tee -a $LOG
+  time lunch sdk_car_x86_64-trunk_staging-userdebug | tee -a $LOG
+  time m -j ${CPU_THREADS} 2>&1 | tee -a $LOG
+  df -h | tee -a $LOG
+}
+
 echo ''
 
 echo '$ runCf or $runEmu to start a Cuttlefish or Android Emulator car AVD' 
