@@ -267,6 +267,20 @@ prebakeUCar() {
   buildCar
 }
 
+prebake15car() {
+  setupGit
+  cdCar vcar
+  LOG="build-$(date +"%Y%m%d-%I%M%S").log"
+  df -h | tee $LOG
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-automotiveos-dev | -a tee $LOG
+  time repo sync -c -j ${CPU_THREADS} | tee -a $LOG
+  df -h | -a tee $LOG
+  time . build/envsetup.sh | -a tee $LOG
+  time lunch aosp_cf_x86_64_auto-ap4a-userdebug | -a tee $LOG
+  time m -j ${CPU_THREADS} 2>&1 | tee -a $LOG
+  df -h | tee -a $LOG
+}
+
 checkDevEnv
 
 if [ -z $1 ]; then
