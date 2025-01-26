@@ -267,16 +267,22 @@ prebakeUCar() {
   buildCar
 }
 
+checkout15car() {
+  setupGit
+  cdCar vcar
+  LOG="checkout-$(date +"%Y%m%d-%I%M%S").log"
+  df -h | tee $LOG
+  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-automotiveos-dev | tee -a $LOG
+  time repo sync -c -j ${CPU_THREADS} | tee -a $LOG
+}
+
 prebake15car() {
   setupGit
   cdCar vcar
   LOG="build-$(date +"%Y%m%d-%I%M%S").log"
   df -h | tee $LOG
-  time repo init --partial-clone -u https://android.googlesource.com/platform/manifest -b android15-automotiveos-dev | -a tee $LOG
-  time repo sync -c -j ${CPU_THREADS} | tee -a $LOG
-  df -h | -a tee $LOG
-  time . build/envsetup.sh | -a tee $LOG
-  time lunch aosp_cf_x86_64_auto-ap4a-userdebug | -a tee $LOG
+  time . build/envsetup.sh | tee -a $LOG
+  time lunch aosp_cf_x86_64_auto-ap4a-userdebug | tee -a $LOG
   time m -j ${CPU_THREADS} 2>&1 | tee -a $LOG
   df -h | tee -a $LOG
 }
